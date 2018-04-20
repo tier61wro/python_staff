@@ -1,3 +1,6 @@
+#Видеокурс
+#https://itvdn.com/ru/video/python-starter?utm_source=forum&utm_medium=post&utm_campaign=toster
+
 #!/usr/bin/env python
 # утф печать
 # -*- coding: utf-8 -*-
