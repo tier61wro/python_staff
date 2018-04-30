@@ -12,3 +12,13 @@ countries = ['Norway', 'Sweden', 'Denmark']
 
 for country in  countries:
     print (country)
+    print ("contr=",country,"===")
+
+s = input("enter num here: ")
+
+try:
+    i = int(s)
+    print ("valid")
+except ValueError as err:
+    print (err)
+
