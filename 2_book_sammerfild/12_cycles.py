@@ -11,6 +11,7 @@ else: print ("more then 10")
 countries = ['Norway', 'Sweden', 'Denmark']
 
 for country in  countries:
+    print (country)
     print ("contr=",country,"===")
 
 s = input("enter num here: ")
