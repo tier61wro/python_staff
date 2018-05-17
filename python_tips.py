@@ -29,9 +29,23 @@ try:
     print ("Valid!")
 except ValueError as er:
     print ("Oshibka:",er)
-    
+
+##################
+# блок if
+if expr:
+    suite1
+elif expres2:
+    suite2
+else:
+    suite3
+##################
+# приглашение к вводу с консоли
+line = input("integer: ")
+
+#################
 # объявление функции
 
 def count_middle(a,b):
     c = (a+b)/2;
     return c;
+
