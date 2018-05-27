@@ -13,7 +13,6 @@
 # -*- coding: utf-8 -*-
 ....
 
-y = "Who understand %r and who %s " % (binary, do_not)
 # разделитель
 print "." * 10
 
@@ -30,7 +29,7 @@ try:
 except ValueError as er:
     print ("Oshibka:",er)
 
-##################
+#======================
 # блок if
 if expr:
     suite1
@@ -38,14 +37,58 @@ elif expres2:
     suite2
 else:
     suite3
-##################
+#======================
 # приглашение к вводу с консоли
 line = input("integer: ")
 
-#################
+#=====================
+mylist =  [6, 5, 4, 3, 2, 1]
+len (mylist) = 6
+#=====================
 # объявление функции
 
 def count_middle(a,b):
     c = (a+b)/2;
     return c;
+#======================
+# цикл от 1 до 2
+for _ in range (1, 3): 
+    print (_)
+
+#======================
+# цикл while
+while 1:
+    line = input("please enter number ")
+    
+Или так
+while True:
+    line = input("enter a number or Enter to finish: ")
+
+# условие if or
+if lowest is None or lowest > number:
+#=========================
+
+#стандартная документация
+python -m pydoc <module_name>
+
+#==============================
+# конкатенации строк, способ "%" 
+"your %s is in the %s" % (object, location)
+# конкатенации строк, способ "+"
+"your " + object + " is in the " + location 
+
+#================================
+#агалог perl -c???
+python -m py_compile  3_vogon_poetry.py
+
+#================================
+#инкремент 
+lines += 1
+#декремент
+lines -= 1
+
+#=====================
+№ аналог перлового exit
+#sys.exit()
+
 

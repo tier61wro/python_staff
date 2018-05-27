@@ -19,9 +19,14 @@ sum_all =0;
 for num in numbers:
     sum_all += int(num)
 
+max_value = max(numbers)
+min_value = min(numbers)
+mean = sum_all/count;
 #def count_median(a)
 
 print ("numbers:", numbers)
-print ("count = ", count)
-print ("sum = ", sum_all)
+print ("count = ", count,"sum = ", sum_all)
+print ("highest = ", max_value, end=' ')
+print ("lowest = ", min_value)
+print ("mean =", mean)
 
