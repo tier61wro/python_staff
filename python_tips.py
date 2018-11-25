@@ -1,5 +1,8 @@
 #Видеокурс
 #https://itvdn.com/ru/video/python-starter?utm_source=forum&utm_medium=post&utm_campaign=toster
+курс 
+https://itproger.com/course/python/7
+
 
 #!/usr/bin/env python
 Строка shebang обычно записывается в одной из двух форм:
@@ -41,7 +44,7 @@ else:
 # приглашение к вводу с консоли
 line = input("integer: ")
 
-#==== Cписки - аналок массивов
+#==== Cписки - аналог массивов
 mylist =  [6, 5, 4, 3, 2, 1]
 mylist.append (23) - вставка элемента
 mylist.append (b) - расширение списка l списком b
@@ -239,7 +242,6 @@ s = ("Это отличный способ объединить две длин�
 >>> print (ord(euros))
 8364
 
-
 #===================
 #Работа с файлами
 f = open("myfile.txt", "x")
@@ -253,7 +255,6 @@ f.write("Woops! I have deleted the content!")
 ecnfновка модулей через pip
 yum install python3-pip
 python3.5 -m pip install validate_email
-
 
 #-------------------
 print ("num = ",num," rub")
