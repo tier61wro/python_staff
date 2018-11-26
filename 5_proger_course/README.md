@@ -1,4 +1,4 @@
-![Alt text](learn_python/pylogo.png?raw=true "Title")
+![Alt text](pylogo.png?raw=true "Title")
 # Content table # 
 - [Уроки](#Уроки)
     - [урок8](#урок8)
