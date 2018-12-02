@@ -202,11 +202,14 @@ print (l[-2::-2])
 
 Чтобы создать словарь вы можете воспользоваться следующей конструкцией:
 ```python
-words = {'short': 'Гоша', 'long': 'Георгий'}
+d0= {'test' : 1, 'prod': 2}
+d1= dict (short = 'dict', longer = 'dictionary')
+d2= dict ([(23,34),(56,87)])
+d3= dict.fromkeys(['a','b'], 3)
 ```
 Методы словарей:
 ```python
-dict.clear() #очистка словаря
+dict.clear() # очистка словаря
 dict.copy() # возвращает копию словаря
 dict.fromkeys(seq[,value]) # создает словарь с ключами из seq и значениям value
 dict.get(key[,default]) # возвращает значение ключа, если ключа нет - возвращаем default
