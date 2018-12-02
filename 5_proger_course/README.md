@@ -1,4 +1,4 @@
-![Alt text](pylogo.png?raw=true "Title")
+![Alt text](0_img/pylogo.png?raw=true "Title")
 # Content table # 
 - [Уроки](#Уроки)
     
@@ -13,7 +13,7 @@
 
 ## Уроки ##
 ### урок3 ###
-![Alt text](pylogo.png?raw=true "Title")
+![Alt text](0_img/errors.png?raw=true "Title")
 ### урок4 ###
 ### урок5 ###
 ### урок6 ###
