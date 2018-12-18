@@ -1,4 +1,6 @@
 ![Alt text](0_img/pylogo.png?raw=true "Title")
+ссылка на курс:
+https://itproger.com/course/python/1
 # Content table # 
 - [Уроки](#Уроки)
     - [3.Диагностика ошибок](#урок3)
