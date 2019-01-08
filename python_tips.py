@@ -1,5 +1,8 @@
 #Видеокурс
 #https://itvdn.com/ru/video/python-starter?utm_source=forum&utm_medium=post&utm_campaign=toster
+челендж по питону на 100 заданий
+https://github.com/zhiwehu/Python-programming-exercises/blob/master/100%2B%20Python%20challenging%20programming%20exercises.txt
+
 курс 
 https://itproger.com/course/python/7
 
