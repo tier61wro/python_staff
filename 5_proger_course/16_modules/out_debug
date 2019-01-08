@@ -1,0 +1,529 @@
+import _frozen_importlib # frozen
+import _imp # builtin
+import sys # builtin
+import '_warnings' # <class '_frozen_importlib.BuiltinImporter'>
+import '_thread' # <class '_frozen_importlib.BuiltinImporter'>
+import '_weakref' # <class '_frozen_importlib.BuiltinImporter'>
+import '_frozen_importlib_external' # <class '_frozen_importlib.FrozenImporter'>
+import '_io' # <class '_frozen_importlib.BuiltinImporter'>
+import 'marshal' # <class '_frozen_importlib.BuiltinImporter'>
+import 'posix' # <class '_frozen_importlib.BuiltinImporter'>
+import _thread # previously loaded ('_thread')
+import '_thread' # <class '_frozen_importlib.BuiltinImporter'>
+import _weakref # previously loaded ('_weakref')
+import '_weakref' # <class '_frozen_importlib.BuiltinImporter'>
+# installing zipimport hook
+import 'zipimport' # <class '_frozen_importlib.BuiltinImporter'>
+# installed zipimport hook
+# /usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc matches /usr/lib/python3.5/encodings/__init__.py
+# code object from '/usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc matches /usr/lib/python3.5/codecs.py
+# code object from '/usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc'
+import '_codecs' # <class '_frozen_importlib.BuiltinImporter'>
+import 'codecs' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce94a1d0>
+# /usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc matches /usr/lib/python3.5/encodings/aliases.py
+# code object from '/usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc'
+import 'encodings.aliases' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8d9c88>
+import 'encodings' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce941da0>
+# /usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc matches /usr/lib/python3.5/encodings/utf_8.py
+# code object from '/usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc'
+import 'encodings.utf_8' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8e7a58>
+import '_signal' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc matches /usr/lib/python3.5/encodings/latin_1.py
+# code object from '/usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc'
+import 'encodings.latin_1' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8ea588>
+# /usr/lib/python3.5/__pycache__/io.cpython-35.pyc matches /usr/lib/python3.5/io.py
+# code object from '/usr/lib/python3.5/__pycache__/io.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/abc.cpython-35.pyc matches /usr/lib/python3.5/abc.py
+# code object from '/usr/lib/python3.5/__pycache__/abc.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc matches /usr/lib/python3.5/_weakrefset.py
+# code object from '/usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc'
+import '_weakrefset' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8f0240>
+import 'abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8eaa20>
+import 'io' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8ea7b8>
+# /usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc matches /usr/lib/python3.5/_bootlocale.py
+# code object from '/usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc'
+import '_locale' # <class '_frozen_importlib.BuiltinImporter'>
+import '_bootlocale' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8f5978>
+Python 3.5.2 (default, Nov 12 2018, 13:43:14) 
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+# /usr/lib/python3.5/__pycache__/site.cpython-35.pyc matches /usr/lib/python3.5/site.py
+# code object from '/usr/lib/python3.5/__pycache__/site.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/os.cpython-35.pyc matches /usr/lib/python3.5/os.py
+# code object from '/usr/lib/python3.5/__pycache__/os.cpython-35.pyc'
+import 'errno' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/__pycache__/stat.cpython-35.pyc matches /usr/lib/python3.5/stat.py
+# code object from '/usr/lib/python3.5/__pycache__/stat.cpython-35.pyc'
+import '_stat' # <class '_frozen_importlib.BuiltinImporter'>
+import 'stat' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8965f8>
+# /usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc matches /usr/lib/python3.5/posixpath.py
+# code object from '/usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc matches /usr/lib/python3.5/genericpath.py
+# code object from '/usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc'
+import 'genericpath' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce89ae80>
+import 'posixpath' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce896978>
+# /usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc matches /usr/lib/python3.5/_collections_abc.py
+# code object from '/usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc'
+import '_collections_abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8a2518>
+import 'os' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce901da0>
+# /usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc matches /usr/lib/python3.5/_sitebuiltins.py
+# code object from '/usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc'
+import '_sitebuiltins' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce905198>
+# /usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc matches /usr/lib/python3.5/sysconfig.py
+# code object from '/usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc'
+import 'sysconfig' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce823cc0>
+# /usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc matches /usr/lib/python3.5/_sysconfigdata.py
+# code object from '/usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc'
+# /usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc matches /usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py
+# code object from '/usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc'
+import '_sysconfigdata_m' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce82e7f0>
+import '_sysconfigdata' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce82e5c0>
+# /usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc matches /usr/lib/python3.5/sitecustomize.py
+# code object from '/usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc'
+# /usr/lib/python3/dist-packages/__pycache__/apport_python_hook.cpython-35.pyc matches /usr/lib/python3/dist-packages/apport_python_hook.py
+# code object from '/usr/lib/python3/dist-packages/__pycache__/apport_python_hook.cpython-35.pyc'
+import 'apport_python_hook' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce849390>
+import 'sitecustomize' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce83e940>
+import 'site' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce8fe8d0>
+# /usr/lib/python3.5/__pycache__/doctest.cpython-35.pyc matches /usr/lib/python3.5/doctest.py
+# code object from '/usr/lib/python3.5/__pycache__/doctest.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/__future__.cpython-35.pyc matches /usr/lib/python3.5/__future__.py
+# code object from '/usr/lib/python3.5/__pycache__/__future__.cpython-35.pyc'
+import '__future__' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce85f940>
+# /usr/lib/python3.5/__pycache__/argparse.cpython-35.pyc matches /usr/lib/python3.5/argparse.py
+# code object from '/usr/lib/python3.5/__pycache__/argparse.cpython-35.pyc'
+# /usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc matches /usr/lib/python3.5/collections/__init__.py
+# code object from '/usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/operator.cpython-35.pyc matches /usr/lib/python3.5/operator.py
+# code object from '/usr/lib/python3.5/__pycache__/operator.cpython-35.pyc'
+import '_operator' # <class '_frozen_importlib.BuiltinImporter'>
+import 'operator' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd21df28>
+# /usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc matches /usr/lib/python3.5/keyword.py
+# code object from '/usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc'
+import 'keyword' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd22c320>
+# /usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc matches /usr/lib/python3.5/heapq.py
+# code object from '/usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc'
+import '_heapq' # <class '_frozen_importlib.BuiltinImporter'>
+import 'heapq' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd22cb38>
+import 'itertools' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc matches /usr/lib/python3.5/reprlib.py
+# code object from '/usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc'
+import 'reprlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd22cf60>
+import '_collections' # <class '_frozen_importlib.BuiltinImporter'>
+import 'collections' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd27da58>
+# /usr/lib/python3.5/__pycache__/copy.cpython-35.pyc matches /usr/lib/python3.5/copy.py
+# code object from '/usr/lib/python3.5/__pycache__/copy.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/types.cpython-35.pyc matches /usr/lib/python3.5/types.py
+# code object from '/usr/lib/python3.5/__pycache__/types.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/functools.cpython-35.pyc matches /usr/lib/python3.5/functools.py
+# code object from '/usr/lib/python3.5/__pycache__/functools.cpython-35.pyc'
+import '_functools' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc matches /usr/lib/python3.5/weakref.py
+# code object from '/usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc'
+import 'weakref' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd251a90>
+import 'functools' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd221d68>
+# /usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc matches /usr/lib/python3.5/collections/abc.py
+# code object from '/usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc'
+import 'collections.abc' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd24acf8>
+import 'types' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd221128>
+# /usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc matches /usr/lib/python3.5/copyreg.py
+# code object from '/usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc'
+import 'copyreg' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd221208>
+import 'copy' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd236a90>
+# /usr/lib/python3.5/__pycache__/re.cpython-35.pyc matches /usr/lib/python3.5/re.py
+# code object from '/usr/lib/python3.5/__pycache__/re.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc matches /usr/lib/python3.5/sre_compile.py
+# code object from '/usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc'
+import '_sre' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc matches /usr/lib/python3.5/sre_parse.py
+# code object from '/usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc matches /usr/lib/python3.5/sre_constants.py
+# code object from '/usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc'
+import 'sre_constants' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd1fc470>
+import 'sre_parse' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd1eed30>
+import 'sre_compile' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd1ee080>
+import 're' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd236fd0>
+# /usr/lib/python3.5/__pycache__/textwrap.cpython-35.pyc matches /usr/lib/python3.5/textwrap.py
+# code object from '/usr/lib/python3.5/__pycache__/textwrap.cpython-35.pyc'
+import 'textwrap' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd20a4e0>
+# /usr/lib/python3.5/__pycache__/gettext.cpython-35.pyc matches /usr/lib/python3.5/gettext.py
+# code object from '/usr/lib/python3.5/__pycache__/gettext.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/locale.cpython-35.pyc matches /usr/lib/python3.5/locale.py
+# code object from '/usr/lib/python3.5/__pycache__/locale.cpython-35.pyc'
+import 'locale' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd215470>
+# /usr/lib/python3.5/__pycache__/struct.cpython-35.pyc matches /usr/lib/python3.5/struct.py
+# code object from '/usr/lib/python3.5/__pycache__/struct.cpython-35.pyc'
+import '_struct' # <class '_frozen_importlib.BuiltinImporter'>
+import 'struct' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd1af550>
+import 'gettext' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd20ab00>
+import 'argparse' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce85fe48>
+# /usr/lib/python3.5/__pycache__/difflib.cpython-35.pyc matches /usr/lib/python3.5/difflib.py
+# code object from '/usr/lib/python3.5/__pycache__/difflib.cpython-35.pyc'
+import 'difflib' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd268d68>
+# /usr/lib/python3.5/__pycache__/inspect.cpython-35.pyc matches /usr/lib/python3.5/inspect.py
+# code object from '/usr/lib/python3.5/__pycache__/inspect.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/ast.cpython-35.pyc matches /usr/lib/python3.5/ast.py
+# code object from '/usr/lib/python3.5/__pycache__/ast.cpython-35.pyc'
+import '_ast' # <class '_frozen_importlib.BuiltinImporter'>
+import 'ast' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd105cc0>
+# /usr/lib/python3.5/__pycache__/dis.cpython-35.pyc matches /usr/lib/python3.5/dis.py
+# code object from '/usr/lib/python3.5/__pycache__/dis.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/opcode.cpython-35.pyc matches /usr/lib/python3.5/opcode.py
+# code object from '/usr/lib/python3.5/__pycache__/opcode.cpython-35.pyc'
+# extension module '_opcode' loaded from '/usr/lib/python3.5/lib-dynload/_opcode.cpython-35m-x86_64-linux-gnu.so'
+# extension module '_opcode' executed from '/usr/lib/python3.5/lib-dynload/_opcode.cpython-35m-x86_64-linux-gnu.so'
+import '_opcode' # <_frozen_importlib_external.ExtensionFileLoader object at 0x7ffbcd12ac88>
+import 'opcode' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd12a550>
+import 'dis' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd127828>
+# /usr/lib/python3.5/__pycache__/enum.cpython-35.pyc matches /usr/lib/python3.5/enum.py
+# code object from '/usr/lib/python3.5/__pycache__/enum.cpython-35.pyc'
+import 'enum' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb5be0>
+# /usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc matches /usr/lib/python3.5/importlib/__init__.py
+# code object from '/usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc matches /usr/lib/python3.5/warnings.py
+# code object from '/usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc'
+import 'warnings' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb7ba8>
+import 'importlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb78d0>
+# /usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc matches /usr/lib/python3.5/importlib/machinery.py
+# code object from '/usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc'
+import 'importlib.machinery' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceca278>
+# /usr/lib/python3.5/__pycache__/linecache.cpython-35.pyc matches /usr/lib/python3.5/linecache.py
+# code object from '/usr/lib/python3.5/__pycache__/linecache.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/tokenize.cpython-35.pyc matches /usr/lib/python3.5/tokenize.py
+# code object from '/usr/lib/python3.5/__pycache__/tokenize.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/token.cpython-35.pyc matches /usr/lib/python3.5/token.py
+# code object from '/usr/lib/python3.5/__pycache__/token.cpython-35.pyc'
+import 'token' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcced8748>
+import 'tokenize' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceca978>
+import 'linecache' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceca828>
+import 'inspect' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd1c3978>
+# /usr/lib/python3.5/__pycache__/pdb.cpython-35.pyc matches /usr/lib/python3.5/pdb.py
+# code object from '/usr/lib/python3.5/__pycache__/pdb.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/cmd.cpython-35.pyc matches /usr/lib/python3.5/cmd.py
+# code object from '/usr/lib/python3.5/__pycache__/cmd.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/string.cpython-35.pyc matches /usr/lib/python3.5/string.py
+# code object from '/usr/lib/python3.5/__pycache__/string.cpython-35.pyc'
+import '_string' # <class '_frozen_importlib.BuiltinImporter'>
+import 'string' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce924a8>
+import 'cmd' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce8d9b0>
+# /usr/lib/python3.5/__pycache__/bdb.cpython-35.pyc matches /usr/lib/python3.5/bdb.py
+# code object from '/usr/lib/python3.5/__pycache__/bdb.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/fnmatch.cpython-35.pyc matches /usr/lib/python3.5/fnmatch.py
+# code object from '/usr/lib/python3.5/__pycache__/fnmatch.cpython-35.pyc'
+import 'fnmatch' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce9de10>
+import 'bdb' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce923c8>
+# /usr/lib/python3.5/__pycache__/code.cpython-35.pyc matches /usr/lib/python3.5/code.py
+# code object from '/usr/lib/python3.5/__pycache__/code.cpython-35.pyc'
+# /usr/lib/python3.5/__pycache__/traceback.cpython-35.pyc matches /usr/lib/python3.5/traceback.py
+# code object from '/usr/lib/python3.5/__pycache__/traceback.cpython-35.pyc'
+import 'traceback' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceaa898>
+# /usr/lib/python3.5/__pycache__/codeop.cpython-35.pyc matches /usr/lib/python3.5/codeop.py
+# code object from '/usr/lib/python3.5/__pycache__/codeop.cpython-35.pyc'
+import 'codeop' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb25f8>
+import 'code' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceaa208>
+# /usr/lib/python3.5/__pycache__/glob.cpython-35.pyc matches /usr/lib/python3.5/glob.py
+# code object from '/usr/lib/python3.5/__pycache__/glob.cpython-35.pyc'
+import 'glob' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb2b00>
+# /usr/lib/python3.5/__pycache__/pprint.cpython-35.pyc matches /usr/lib/python3.5/pprint.py
+# code object from '/usr/lib/python3.5/__pycache__/pprint.cpython-35.pyc'
+import 'pprint' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcceb2f60>
+# /usr/lib/python3.5/__pycache__/signal.cpython-35.pyc matches /usr/lib/python3.5/signal.py
+# code object from '/usr/lib/python3.5/__pycache__/signal.cpython-35.pyc'
+import 'signal' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce450b8>
+import 'pdb' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcd0fea58>
+# /usr/lib/python3.5/unittest/__pycache__/__init__.cpython-35.pyc matches /usr/lib/python3.5/unittest/__init__.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/__init__.cpython-35.pyc'
+# /usr/lib/python3.5/unittest/__pycache__/result.cpython-35.pyc matches /usr/lib/python3.5/unittest/result.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/result.cpython-35.pyc'
+# /usr/lib/python3.5/unittest/__pycache__/util.cpython-35.pyc matches /usr/lib/python3.5/unittest/util.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/util.cpython-35.pyc'
+import 'unittest.util' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce56208>
+import 'unittest.result' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce45a58>
+# /usr/lib/python3.5/unittest/__pycache__/case.cpython-35.pyc matches /usr/lib/python3.5/unittest/case.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/case.cpython-35.pyc'
+# /usr/lib/python3.5/logging/__pycache__/__init__.cpython-35.pyc matches /usr/lib/python3.5/logging/__init__.py
+# code object from '/usr/lib/python3.5/logging/__pycache__/__init__.cpython-35.pyc'
+import 'time' # <class '_frozen_importlib.BuiltinImporter'>
+# /usr/lib/python3.5/__pycache__/threading.cpython-35.pyc matches /usr/lib/python3.5/threading.py
+# code object from '/usr/lib/python3.5/__pycache__/threading.cpython-35.pyc'
+import 'threading' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce02fd0>
+import 'atexit' # <class '_frozen_importlib.BuiltinImporter'>
+import 'logging' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce6bc88>
+# /usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc matches /usr/lib/python3.5/contextlib.py
+# code object from '/usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc'
+import 'contextlib' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce22f60>
+import 'unittest.case' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce56160>
+# /usr/lib/python3.5/unittest/__pycache__/suite.cpython-35.pyc matches /usr/lib/python3.5/unittest/suite.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/suite.cpython-35.pyc'
+import 'unittest.suite' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbccdbeef0>
+# /usr/lib/python3.5/unittest/__pycache__/loader.cpython-35.pyc matches /usr/lib/python3.5/unittest/loader.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/loader.cpython-35.pyc'
+import 'unittest.loader' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbccdc5780>
+# /usr/lib/python3.5/unittest/__pycache__/main.cpython-35.pyc matches /usr/lib/python3.5/unittest/main.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/main.cpython-35.pyc'
+# /usr/lib/python3.5/unittest/__pycache__/runner.cpython-35.pyc matches /usr/lib/python3.5/unittest/runner.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/runner.cpython-35.pyc'
+# /usr/lib/python3.5/unittest/__pycache__/signals.cpython-35.pyc matches /usr/lib/python3.5/unittest/signals.py
+# code object from '/usr/lib/python3.5/unittest/__pycache__/signals.cpython-35.pyc'
+import 'unittest.signals' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbccdde278>
+import 'unittest.runner' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbccdd58d0>
+import 'unittest.main' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbccdd5208>
+import 'unittest' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbcce8d080>
+import 'doctest' # <_frozen_importlib_external.SourceFileLoader object at 0x7ffbce849a20>
+# extension module 'readline' loaded from '/usr/lib/python3.5/lib-dynload/readline.cpython-35m-x86_64-linux-gnu.so'
+# extension module 'readline' executed from '/usr/lib/python3.5/lib-dynload/readline.cpython-35m-x86_64-linux-gnu.so'
+import 'readline' # <_frozen_importlib_external.ExtensionFileLoader object at 0x7ffbccde9208>
+# clear builtins._
+# clear sys.path
+# clear sys.argv
+# clear sys.ps1
+# clear sys.ps2
+# clear sys.last_type
+# clear sys.last_value
+# clear sys.last_traceback
+# clear sys.path_hooks
+# clear sys.path_importer_cache
+# clear sys.meta_path
+# clear sys.__interactivehook__
+# clear sys.flags
+# clear sys.float_info
+# restore sys.stdin
+# restore sys.stdout
+# restore sys.stderr
+# cleanup[2] removing posixpath
+# cleanup[2] removing importlib._bootstrap_external
+# cleanup[2] removing importlib._bootstrap
+# cleanup[2] removing pprint
+# cleanup[2] removing readline
+# cleanup[2] removing operator
+# destroy operator
+# cleanup[2] removing builtins
+# cleanup[2] removing _weakref
+# cleanup[2] removing _collections
+# cleanup[2] removing _io
+# cleanup[2] removing logging
+# cleanup[2] removing genericpath
+# cleanup[2] removing marshal
+# cleanup[2] removing types
+# cleanup[2] removing _sre
+# cleanup[2] removing _sysconfigdata_m
+# destroy _sysconfigdata_m
+# cleanup[2] removing errno
+# cleanup[2] removing sitecustomize
+# destroy sitecustomize
+# cleanup[2] removing tokenize
+# cleanup[2] removing threading
+# cleanup[2] removing collections.abc
+# cleanup[2] removing _opcode
+# cleanup[2] removing _string
+# cleanup[2] removing struct
+# cleanup[2] removing stat
+# cleanup[2] removing contextlib
+# cleanup[2] removing unittest.util
+# cleanup[2] removing unittest.loader
+# cleanup[2] removing traceback
+# cleanup[2] removing reprlib
+# destroy reprlib
+# cleanup[2] removing _bootlocale
+# destroy _bootlocale
+# cleanup[2] removing functools
+# cleanup[2] removing unittest.result
+# cleanup[2] removing unittest.case
+# cleanup[2] removing textwrap
+# cleanup[2] removing __main__
+# destroy __main__
+# cleanup[2] removing pdb
+# cleanup[2] removing argparse
+# cleanup[2] removing _frozen_importlib
+# cleanup[2] removing _imp
+# cleanup[2] removing weakref
+# cleanup[2] removing gettext
+# destroy gettext
+# cleanup[2] removing warnings
+# cleanup[2] removing zipimport
+# cleanup[2] removing codecs
+# cleanup[2] removing difflib
+# cleanup[2] removing copyreg
+# cleanup[2] removing time
+# cleanup[2] removing encodings.utf_8
+# cleanup[2] removing apport_python_hook
+# destroy apport_python_hook
+# cleanup[2] removing sys
+# cleanup[2] removing _heapq
+# cleanup[2] removing itertools
+# cleanup[2] removing re
+# cleanup[2] removing _frozen_importlib_external
+# cleanup[2] removing _warnings
+# cleanup[2] removing __future__
+# cleanup[2] removing sre_parse
+# cleanup[2] removing os
+# cleanup[2] removing _locale
+# cleanup[2] removing sysconfig
+# destroy sysconfig
+# cleanup[2] removing string
+# cleanup[2] removing encodings.aliases
+# cleanup[2] removing _operator
+# cleanup[2] removing collections
+# cleanup[2] removing token
+# cleanup[2] removing site
+# destroy site
+# cleanup[2] removing copy
+# cleanup[2] removing code
+# cleanup[2] removing dis
+# cleanup[2] removing _sysconfigdata
+# destroy _sysconfigdata
+# cleanup[2] removing glob
+# cleanup[2] removing doctest
+# cleanup[2] removing locale
+# cleanup[2] removing signal
+# cleanup[2] removing _codecs
+# cleanup[2] removing fnmatch
+# cleanup[2] removing opcode
+# destroy opcode
+# cleanup[2] removing sre_constants
+# destroy sre_constants
+# cleanup[2] removing inspect
+# cleanup[2] removing _thread
+# cleanup[2] removing sre_compile
+# cleanup[2] removing unittest.suite
+# cleanup[2] removing importlib.machinery
+# cleanup[2] removing unittest.main
+# destroy unittest.main
+# cleanup[2] removing _struct
+# cleanup[2] removing io
+# cleanup[2] removing os.path
+# cleanup[2] removing _stat
+# cleanup[2] removing _weakrefset
+# destroy _weakrefset
+# cleanup[2] removing codeop
+# destroy codeop
+# cleanup[2] removing unittest.signals
+# cleanup[2] removing _ast
+# cleanup[2] removing keyword
+# destroy keyword
+# cleanup[2] removing cmd
+# cleanup[2] removing _functools
+# cleanup[2] removing _collections_abc
+# cleanup[2] removing encodings.latin_1
+# cleanup[2] removing ast
+# cleanup[2] removing bdb
+# cleanup[2] removing linecache
+# cleanup[2] removing posix
+# cleanup[2] removing _signal
+# cleanup[2] removing enum
+# cleanup[2] removing encodings
+# cleanup[2] removing importlib
+# cleanup[2] removing abc
+# cleanup[2] removing _sitebuiltins
+# cleanup[2] removing unittest
+# cleanup[2] removing atexit
+# cleanup[2] removing heapq
+# cleanup[2] removing unittest.runner
+# destroy _ast
+# destroy zipimport
+# destroy doctest
+# destroy abc
+# destroy _sitebuiltins
+# destroy pdb
+# destroy unittest
+# destroy textwrap
+# destroy _collections_abc
+# destroy heapq
+# destroy _operator
+# destroy _heapq
+# destroy _collections
+# destroy collections.abc
+# destroy _functools
+# destroy copyreg
+# destroy sre_compile
+# destroy sre_parse
+# destroy _sre
+# destroy copy
+# destroy locale
+# destroy struct
+# destroy encodings
+# destroy _locale
+# destroy _struct
+# destroy enum
+# destroy token
+# destroy ast
+# destroy importlib
+# destroy _opcode
+# destroy importlib.machinery
+# destroy tokenize
+# destroy cmd
+# destroy code
+# destroy dis
+# destroy inspect
+# destroy bdb
+# destroy glob
+# destroy string
+# destroy _string
+# destroy linecache
+# destroy itertools
+# destroy __future__
+# destroy readline
+# destroy fnmatch
+# destroy _signal
+# destroy unittest.signals
+# destroy contextlib
+# destroy pprint
+# destroy difflib
+# destroy logging
+# destroy threading
+# destroy collections
+# destroy io
+# destroy atexit
+# destroy functools
+# destroy unittest.suite
+# destroy traceback
+# destroy unittest.util
+# destroy types
+# destroy re
+# destroy unittest.case
+# destroy unittest.runner
+# destroy unittest.loader
+# destroy argparse
+# destroy warnings
+# destroy unittest.result
+# destroy time
+# destroy weakref
+# destroy signal
+# cleanup[3] wiping posixpath
+# destroy genericpath
+# cleanup[3] wiping importlib._bootstrap_external
+# cleanup[3] wiping importlib._bootstrap
+# destroy _frozen_importlib_external
+# cleanup[3] wiping _weakref
+# destroy _weakref
+# cleanup[3] wiping _io
+# destroy io
+# cleanup[3] wiping marshal
+# destroy marshal
+# cleanup[3] wiping errno
+# cleanup[3] wiping stat
+# cleanup[3] wiping _frozen_importlib
+# cleanup[3] wiping _imp
+# destroy _imp
+# cleanup[3] wiping codecs
+# cleanup[3] wiping encodings.utf_8
+# cleanup[3] wiping _warnings
+# destroy _warnings
+# cleanup[3] wiping os
+# destroy posixpath
+# destroy errno
+# cleanup[3] wiping encodings.aliases
+# cleanup[3] wiping _codecs
+# cleanup[3] wiping _thread
+# destroy _thread
+# cleanup[3] wiping _stat
+# destroy _stat
+# cleanup[3] wiping encodings.latin_1
+# cleanup[3] wiping posix
+# destroy posix
+# cleanup[3] wiping sys
+# cleanup[3] wiping builtins
+# destroy stat
+# destroy os
+# destroy _frozen_importlib
