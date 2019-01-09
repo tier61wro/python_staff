@@ -201,7 +201,8 @@ x ** y - возведение в степень  = pow(x,y) (Return x raised to 
 print ("decim=",decim, sep='')
 # принт без \n
 print ("decim=",decim, end='')
-
+#можно оба сразу:
+print (i,",", sep = '', end = '')
 
 Преобразование целых
 чисел в тип float можно выполнить с помощью функции float()
