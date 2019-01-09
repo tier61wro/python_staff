@@ -153,7 +153,12 @@ l.sort ()
 l.reverse ()
 l.clear ()
 
-print (l)
+#полезно для печати:
+a = ['red', 'green', 'blue']
+print(' '.join(a))
+# вернёт red green blue
+print('***'.join(a))
+# вернёт red***green***blue
 ```
 
 #### 8 Индексы и срезы ####
@@ -311,6 +316,14 @@ print ((lambda x, y: x * y)(2, 6))
 
 fun = lambda *args: args
 print (fun (2, 56, 78.56))
+
+# рекурсивная функция
+def fact(x):
+    if x == 0 or x == 1:
+        return 1
+    return x * fact(x-1)
+
+print (fact (8)) 
 ```
 #ЗАДАНИЯ
 ```python
