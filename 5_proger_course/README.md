@@ -500,6 +500,17 @@ with open("x.txt") as f:
     for line in f:
         do something with data
 ```
+
+```python
+#склеиваем новое имя файла из пути и бэйснэйма  
+f_out = os.path.join(os.path.dirname(file_name), 'decoded_' + os.path.basename(file_name))
+```
+
+```python
+#проверка на существование файла
+if (os.path.isfile(f_out)):
+    print ("OK: out file exists")
+```
 #ЗАДАНИЯ:
 ```python
 #Создайте файл hi.txt и поместите туда строку "Какая-угодно информация!" и закройте файл.
