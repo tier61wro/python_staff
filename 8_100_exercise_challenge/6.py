@@ -26,10 +26,15 @@ def count_form(d):
 
 #items=[x for x in raw_input().split(',')]
 
-d = str(input ("give me coma sep string\n"))
-l = d.split(',')
+#d = str(input ("give me coma sep string\n"))
+#l = d.split(',')
+#l = [x for x in str(input ("give me coma sep string\n")).split(',')]
+l = str(input ("give me coma sep string\n")).split(',')
+
 print ("params = ", l)
 for d in l :
     print (str(count_form(int(d))) + ',',end = '')
-#sys.exit(0)
+    print (','.str(count_form(int(d))))
+sys.exit(0)
+
 

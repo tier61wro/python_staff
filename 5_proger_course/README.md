@@ -24,7 +24,7 @@ https://itproger.com/course/python/1
 ## Уроки ##
 ### урок2 ###
 ![Alt text](0_img/errors.png?raw=true "Title")
-### ввод и вывод###
+### полезный стаф вне уроков###
 
 # ввод аргументов с командной строки
 ```python
@@ -32,8 +32,15 @@ import sys
 for arg in sys.argv[1:]: #-нулевой имя скрипта
     print ("arg = ", arg)
 ```
-### 4 Переменные ###
+аналог перловго exit:
+```python
+sys.exit(0)
 
+```
+```python
+print ("in params n={} k={}".format(n,k)) # перез format стоит точка - так как это метод применяемый к строке
+```
+### 4 Переменные ###
 В ходе самой программы мы можем перезаписывать значение переменной, при этом мы можем указывать новый тип переменной. К примеру, изначально был записан тип float, но потом можно записать другой тип данных:
 ```python
 first_num = 23.2 # Тип данных float
@@ -53,7 +60,6 @@ some = 1 Integer - целые числа
 some = 1.12 Float - числа с плавающей точкой
 some = "Привет" String - строки
 ```
-
 Есть и другие типы, но их мы будем разбирать в последующих уроках.
 
 Также можно присваивать сразу несколько переменных:
@@ -147,7 +153,7 @@ l = []
 lis = [1, 56, 'x', 34, 2.34, ['S', 't', 'r', 'o', 'k', 'a']]
 print (lis)
 
-a = [a + b for a in 'list' if a != 's' for b in 'soup' if b != 'u']
+a = [a + b for a in 'list' if a != 's' for b in 'soup' if b != 'u'] #Генераторы списков (List comprehension) вместо 3 строк 1 
 print (a)
 
 l.append (23)
@@ -172,6 +178,15 @@ print(' '.join(a))
 # вернёт red green blue
 print('***'.join(a))
 # вернёт red***green***blue
+```
+```python
+#двухмерный массив в питоне это геморой, сначала надо забить матрицу нулями а потом уже чем захотим:
+arr_out = [[0 for x in range(int(k))] for y in range(int(n))]
+...
+arr_out[i][j] = i*j
+#или юзать numpy 
+>>> import numpy
+>>> numpy.zeros((5, 5))
 ```
 
 #### 8 Индексы и срезы ####
@@ -252,7 +267,7 @@ dict.values() #  возвращает значения в словаре
 
 Применение словарей в Python:
 ```python
-d = {a : a ** 2 for a in range(7)}
+d = {a : a ** 2 for a in range(7)} # генератор словаря Dictionary Comprehension, экономия строк кода
 print (d)
 
 person = {'name' : {'last_name': 'Иванов', 'first_name': 'Иван', 'middle_name': 'Иванович'}, 'address': ['г. Андрюшки', 'ул. Васильковская д. 23б', 'кв.12'], 'phone': {'home_phone': '34-67-12', 'mobile_phone': '8-564-345-23-65', 'mobile_phone_2': 'Нет'}}
