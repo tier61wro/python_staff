@@ -41,6 +41,8 @@ sys.exit(0)
 ```python
 print ("total sum = %i" % total_sum) # Форматирование строк с помощью оператора %
 print ("in params n={} k={}".format(n,k)) # перез format стоит точка - так как это метод применяемый к строке
+#type hints
+def prepare_params(request_params: dict):# ???разобраться для чего надо
 ```
 ### 4 Переменные ###
 В ходе самой программы мы можем перезаписывать значение переменной, при этом мы можем указывать новый тип переменной. К примеру, изначально был записан тип float, но потом можно записать другой тип данных:
@@ -251,6 +253,7 @@ d0= {'test' : 1, 'prod': 2}
 d1= dict (short = 'dict', longer = 'dictionary')
 d2= dict ([(23,34),(56,87)])
 d3= dict.fromkeys(['a','b'], 3)
+
 ```
 Методы словарей:
 ```python
@@ -269,6 +272,14 @@ dict.values() #  возвращает значения в словаре
 
 Применение словарей в Python:
 ```python
+# получение значения
+dictionary.get("bogus", default_value)
+#намного лучше чем:
+dictionary["bogus"]
+#??? как быть с r['body'][0]['registration_info']['name']['first']
+#проверка того что ключ есть в словаре
+if key in dict.keys():
+
 d = {a : a ** 2 for a in range(7)} # генератор словаря Dictionary Comprehension, экономия строк кода
 print (d)
 
@@ -506,6 +517,12 @@ try:
     bad_func(3)
 except NameError:
     print ("bad f")
+```
+```
+#если мы хотим вывести код ошибки в лог - пишем так:
+except Exception as e:
+	print('failed to save file:' + e)
+
 ```
 ### 14 файлы ###
 Для открытия файла существует функция open, которая открывает файл разными способами. Вот все возможные типы открытия файла:
@@ -796,3 +813,16 @@ show_age(32,6)
 
 Один из важных фактов, которые следует понимать, заключается в том, что функции и методы в Python — это практически одно и то же, за исключением того, что методы всегда ожидают первым параметром ссылку на сам объект (self). Это значит, что мы можем создавать декораторы для методов точно так же, как и для функций, просто не забывая про self.
 
+### 20 unittesting ###
+```
+Юниттесты
+https://devpractice.ru/unit-testing-in-python-part-1/
+
+python3.6 -m unittest -v  get_cloud_ctock.py
+```
+
+### Dates and time ###
+```
+#get current ts
+curr_ts = int(time.time())
+```
