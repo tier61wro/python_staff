@@ -254,6 +254,8 @@ f.write("Woops! I have deleted the content!")
 "a" - Append - will create a file if the specified file does not exist
 "w" - Write - will create a file if the specified file does not exist
 
+# поиск всех файлов в папке по маске:
+onlyfiles = glob.glob(folder_name + "/*.png")
 
 #====================================
 ecnfновка модулей через pip
@@ -263,4 +265,9 @@ python3.5 -m pip install validate_email
 #-------------------
 print ("num = ",num," rub")
 #-------------------
+
+#GENERATORS
+
+#DICTS
+
 
