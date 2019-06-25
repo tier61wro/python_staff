@@ -1,4 +1,4 @@
-
+урок 1
 virtualenv venv
 source venv/bin/activate
 
@@ -20,7 +20,8 @@ django-admin startproject blogengine
 
     создание приложения:
     идем в
-    ~/git/learn_python/13_django_molchanov/app/blogengine
+    ~/git/learn_python/
+    13_django_molchanov/app/blogengine
     и запускаем:
     python3.7 manage.py startapp blog
 
@@ -37,16 +38,43 @@ django-admin startproject blogengine
 
 1 directory, 7 files
 
-mvc - паттерн проектирования
-model - бд
-view - демонстрация ответа пользователю - шаблоны на деле
-controller - маршрутизация запросов -views на деле
-
 запуск сервера
-python3.7 manage.py runserver
+python3.7 manage.py runserver и_номер_порта
+----
+урок 2 Роутинг заросов
+mvc - паттерн проектирования:
 
+Model - бд
+View - демонстрация ответа пользователю - шаблоны на деле
+Controller - маршрутизация запросов -views на деле
+
+юзаем sqlite
+
+#vievs.py - обработчик запроса браузера всегда на вход принимает
+объект request
+def hello(request):
+    pass
+
+Встроенная функция dir() возвращает отсортированный список строк, содержащих имена, определенные в модуле.
+Список содержит имена всех модули, переменных и функций, определенные в модуле.
+чтобы приложение заработало добавляем его в settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+]
+
+path('blog/', hello, имя, параметры для функции)
+подключаем роутинг заросов
+path('blog/', include("blog.urls"))
+----
 3 урок насделедование шаблона
 
+----
 4 урок
 ORM
 m-maping
@@ -64,7 +92,7 @@ manage.py mmigrate -  применяет именения
 пути динамические
 #в urls.py:
 path('post/<str:slug>', post_detail, name='post_detail')
-в угловых скабках именованная группа
+в угловых скобках именованная группа
 #в views.py
 def post_detail(request, slug): - slug = slug!
   post = Post.objects.get(slug_iexact=slug)
@@ -81,4 +109,11 @@ def post_detail(request, slug): - slug = slug!
     </h1>
 {% endblock %}
 
-url reversing
+url reversing - процесс генерации ссылки на объект -  в шаблонах это функция url
+а в питоновских файлах reverse
+def get_absolute_url(self):
+    return reverse('pist_detail_url', kwargs={'slug':self.slug})
+
+в шаблоне:
+        <a href="{url 'post_detail_url' slug=post.slug %}"class="btn btn-light">Read</a>"
+        меняем на post.get_absolute_url
