@@ -1,3 +1,11 @@
+каждый урок - ветка
+мердж ветки
+merge remote branch to master
+git checkout master
+git pull origin master
+git merge test
+git push origin master
+----
 урок 1
 virtualenv venv
 source venv/bin/activate
@@ -15,17 +23,15 @@ django-admin startproject blogengine
     │   └── wsgi.py
     └── manage.py
 
-    проект состоит из приложений (apps)
-    каждый app по сути папка с файлами
 
-    создание приложения:
-    идем в
-    ~/git/learn_python/
-    13_django_molchanov/app/blogengine
+проект состоит из приложений (apps)
+каждый app по сути папка с файлами
+
+создание нового приложения с именем blog:
+    идем в ~/git/learn_python/13_django_molchanov/app/blogengine
     и запускаем:
     python3.7 manage.py startapp blog
-
-    tree
+tree
 .
 ├── __init__.py
 ├── admin.py
@@ -36,9 +42,7 @@ django-admin startproject blogengine
 ├── tests.py
 └── views.py
 
-1 directory, 7 files
-
-запуск сервера
+запуск сервера:
 python3.7 manage.py runserver и_номер_порта
 ----
 урок 2 Роутинг заросов
@@ -46,7 +50,7 @@ mvc - паттерн проектирования:
 
 Model - бд
 View - демонстрация ответа пользователю - шаблоны на деле
-Controller - маршрутизация запросов -views на деле
+Controller - маршрутизация запросов - views на деле
 
 юзаем sqlite
 
@@ -70,25 +74,173 @@ INSTALLED_APPS = [
 
 path('blog/', hello, имя, параметры для функции)
 подключаем роутинг заросов
-path('blog/', include("blog.urls"))
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('blog/', include("blog.urls"))
+]
 ----
-3 урок насделедование шаблона
+3 урок наслеледование шаблона
+создаем папку с шаблонами:
+/Users/a.kondrikov/git/learn_python/13_django_molchanov/
+app/blogengine/blog/templates/blog
+шаблоны размещаются по папкам чтобы избежать конфликтов
 
+передача переменной в шаблон:
+#views.py
+def posts_list(request):
+    n = 'sasha'
+    return render(request, 'blog/index.html', context = {'name': n })
+
+#template отображение переданной переменной
+<p>{{name}}</p>
+процесс наполнения шаблона данными называется рендеринг
+
+#цикл внутри шаблона:
+{% for n in names %}
+<p>{{n}}</p>
+{% endfor %}
+
+создаем базовый шаблон чтобы наследовать остальные от него
+подключаем к нему bootstrap для этого идем на
+https://getbootstrap.com/docs/4.3/getting-started/introduction/
+и копирурем оттуда
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+который вставляем в head шаблона
 ----
-4 урок
-ORM
-m-maping
-идем в models.py и делаем класс который описывает наш пост
-чпу человекопонятный урл (поле слаг уникальное для поста)
-для класса описываем поля
-чтобы все примеилось в бд нам нужно сделать мигрэйт
+4 урок Модели
+ORM - объектно ориентированный мапинг
+m-maping - соотношение карты и местности
+у нас вместо карты у нас объекты питона - вместо местности база данных
+идем в models.py и создаем класс который описывает наш пост:
+# Create your models here.
+class Post(models.Model):
+    title = models.CharField(max_length=150, db_index=True)#db_index - для быстрой индексации
+    slug = models.SlugField(max_length=150, unique=True)
+    body = models.TextField(blank=True, db_index=True)#CharField - валидатор
+    date_pub = models.DateField(auto_now_add=True)
 
-manage.py makeingrations - создает именения
-manage.py mmigrate -  применяет именения
-создаем экзэмпляр вручную -  сохраняем изменения при помощи p.save
+    def __str__(self): # метод класса (модели) отвечает за вывод инф о объекте, мы переопределяем его
+        return '{}'.format(self.title) # если принтить объект без этого то будет некрасиво
+slug - чпу человекопонятный урл (поле slug уникальное для поста)
+#----------- создаем изменнения в базе
+чтобы все применилось в бд нам нужно сделать мигрэйт
+мигрэйт по сути гит для баз данных
+~/git/learn_python/13_django_molchanov/app/blogengine$ ./manage.py makemigrations - создает именения
+после этого пояавилась папка
+  blog/migrations/0001_initial.py
+    - Create model Post
+#----------- применяем изменения в базе
+~/git/learn_python/13_django_molchanov/app/blogengine$ ./manage.py makemigrations -  применяет именения
+(venv) 20:11:05-a.kondrikov@mymac:~/git/learn_python/13_django_molchanov/app/blogengine$ ./manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, blog, contenttypes, sessions
+Running migrations:
+  Applying blog.0001_initial... OK
+#----------- создание поста руками
+# переходим в консоль Джанго и создаем пост руками
+~/git/learn_python/13_django_molchanov/app/blogengine$  ./manage.py shell
+Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
+>>> from blog.models import Post
+>>> p= Post(title='New post', slug='new-slug', body='new post body')
+>>> p
+<Post: New post>
+>>> p.id
+>>> p.title
+'New post'
+>>> p.slug
+'new-slug'
+>>> p.save()
+>>> p.id
+1
+>>>
+#создали экземпляр вручную -  сохраняем изменения при помощи p.save
+#-----------
+Джанго при создании объекта прибавляет к нему менеджера оъекта
+Он находится в атрибуте objects
+все операции чтения и изменения в БД осуществляются через менеджер модели:
+#создаем в консоли экземпляр класса пост через менеджер модели
+>>> p1 = Post.objects.create(title='new_post', slug='new_slug', body='body')
+>>> p1
+<Post: new_post>
+# выведем на экран все экземпляры используя метод all()
+>>> Post.objects.all()
+<QuerySet [<Post: New post>, <Post: new_post>]>
+# наедем нужный пост при помощи метода get()
+>>> post = Post.objects.get(title='New post')
+>>> post
+<Post: New post>
+# по дефолту get регистрозависимый, делаем независимый используя лукап iexact
+>>> post = Post.objects.get(slug__iexact='New-slug')
+>>> post
+<Post: New post>
+>>> post = Post.objects.get(slug__iexact='nEw-slug')
+>>> post
+<Post: New post>
+# если больше одного то вместо get filter, лукап для поиска по подстроке - contains
+>>> post = Post.objects.filter(slug__contains='slug')
+>>> post
+<QuerySet [<Post: New post>, <Post: new_post>]>
+# iexact, contains это Джанго lookups, ,список тут:
+https://docs.djangoproject.com/en/2.2/ref/models/querysets/#field-lookups
+# Field lookups are how you specify the meat of an SQL WHERE clause. They’re specified as keyword arguments to the QuerySet methods filter(), exclude() and get().
 
+#------------------ добавляем немного верстки
+идем во
+https://getbootstrap.com/docs/4.3/components/card/#header-and-footer
+и берем оттуда card и запишиваем его в цикл отображения постов
+
+{% for post in posts %}
+<div class="card">
+    <div class="card-header">
+        {{ post.date_pub }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text"> {{ post.body|truncatewords:15 }} </p>
+        <!--#фильтр для шаблона-->
+        <a href="#" class="btn btn-light">Read</a>
+    </div>
+</div>
+<p>{{post.title}}</p>
+{% endfor %}
+{% endblock %}
+
+чтобы сделать незахардкоженные ссылки меняем в шаблоне:
+<!--<a class="nav-link" href="/blog">Blog </a>-->
+на
+<a class="nav-link" href="{% url 'posts_list_url' %}">Blog </a>
+#а в urls.py прописываем поле name для урла
+#path('', posts_list)
+path('', posts_list, name='posts_list_url')
+
+структура шаблонов
+/Users/a.kondrikov/git/learn_python/13_django_molchanov/app/blogengine
+./templates/base.html
+./blog/templates/blog/base_blog.html # только наследование базового
+./blog/templates/blog/index.html
+./blog/templates/blog/post_detail.html
+
+# index.html для каждого поста
+<a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-light">Read</a>
+# urls.py
+path('post/<slug:slug>/', post_detail, name='post_detail_url') # в угловых  скобках именованная группа, слэш в конце обязателен
+# views.py
+def post_detail(request, slug): # slug прийдет из именованной группы символов 'post/<slug:slug>/'
+    post = Post.objects.get(slug__iexact=slug)
+    return render(request, 'blog/post_detail.html', context={'post':post})
+# хотим себе упростить жизнь тут
+#<a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-light">Read</a>
+#чтобы не хардкодить url
+<!--<a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-light">Read</a>-->
+<a href="{{ post.get_absolute_url }}" class="btn btn-light">Read</a>
+# в models.py мы определили функцию:
+    def get_absolute_url(self): #имя лучше именно такое, возврашает ссылку на конкретный экземпляр класса Post
+        return reverse('post_detail_url', kwargs={'slug':self.slug}) # reverse в .py = url в шаблонах
+
+#---------------------
 затем идем во вьюхи и там прикручиваем
-берем пременные из модели и говорим отрендери нам шаблон вот с такими переменными вщятыми из базы через модель
+берем пременные из модели и говорим отрендери нам шаблон вот с такими переменными взятыми из базы через модель
 пути динамические
 #в urls.py:
 path('post/<str:slug>', post_detail, name='post_detail')
@@ -117,3 +269,6 @@ def get_absolute_url(self):
 в шаблоне:
         <a href="{url 'post_detail_url' slug=post.slug %}"class="btn btn-light">Read</a>"
         меняем на post.get_absolute_url
+
+#--------------------
+5 урок
