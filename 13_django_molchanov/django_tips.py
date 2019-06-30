@@ -205,6 +205,9 @@ https://getbootstrap.com/docs/4.3/components/card/#header-and-footer
 <p>{{post.title}}</p>
 {% endfor %}
 {% endblock %}
+# фильтры для шаблонов всегда идут после |
+# список фильтров https://docs.djangoproject.com/en/2.2/ref/templates/builtins/#ref-templates-builtins-filters
+# описание языка шаьлонов джанго https://docs.djangoproject.com/en/2.2/ref/templates/language/
 
 чтобы сделать незахардкоженные ссылки меняем в шаблоне:
 <!--<a class="nav-link" href="/blog">Blog </a>-->
@@ -271,4 +274,82 @@ def get_absolute_url(self):
         меняем на post.get_absolute_url
 
 #--------------------
-5 урок
+5 урок создаем модель Tag, отношения manytomany
+
+для связи manytomany часто используется дополнительная табличка
+
+№   post_id  tag_id
+1      1       1
+2      1       2
+
+джанго позволяет обойтись без доп талиц
+чтобы создать связь можно просто прописать нужные свойства для одной из таблиц
+
+# еще немного премудростей консоли джанго
+# делаем правки вручную
+#ctr + l - очистка консоли
+#берем значения всех полей одного экземпляра по id
+
+#--------models.py Создаем новую модель
+class Tag(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
+
+    def __str__(self):
+        return '{}'.format(self.title)
+
+#создаем в моделе post дополнительное поле которое будет связвывать ее с tag
+    tags = models.ManyToManyField('Tag', blank=True, related_name='posts')  # экземпляр класса ManyToManyField
+    #related_name  - обозначает свойство которое появится у экзэмпляров класса Tag
+    # posts - главный класс, tag - обслуживаюший
+#--------
+
+>>> Post.objects.values().filter(id=1)
+<QuerySet [{'id': 1, 'title': 'New post', 'slug': 'new-slug', 'body': 'new post body', 'date_pub': datetime.date(2019, 6, 29)}]>
+#берем значения всех полей всех экземпляров класса
+>>> Post.objects.values()
+<QuerySet [{'id': 1, 'title': 'new_post1', 'slug': 'new-post1', 'body': 'new post body', 'date_pub': datetime.date(2019, 6, 29)}, {'id': 2, 'title': 'new_post2', 'slug': 'new-post2', 'body': 'body', 'date_pub': datetime.date(2019, 6, 29)}, {'id': 3, 'title': 'new_post3', 'slug': 'new-post3', 'body': 'body', 'date_pub': datetime.date(2019, 6, 29)}, {'id': 4, 'title': 'new_post4', 'slug': 'new-post4', 'body': 'body', 'date_pub': datetime.date(2019, 6, 29)}, {'id': 5, 'title': 'new_post5', 'slug': 'new-post5', 'body': 'body', 'date_pub': datetime.date(2019, 6, 29)}]>
+# меняем значение поля для экземпляра
+>>> post = Post.objects.get(id=1)
+>>> post.slug = 'new-post1'
+>>> post.save()
+
+#-------------- создаем экземпляр(объект) класса tag
+>>> django_t = Tag.objects.create(title='django', slug='django')
+>>> django_t
+<Tag: django>
+#привязываем его:
+>>> post.tags.add(django_t)
+
+# ------ делаем тоже самое в джанго
+#создаем отдельный шаблон для отображения тегов tags_list.html
+
+{% block content %}
+    <h1 class="mt-5">Tags:</h1>
+
+    {% for tag in tags %}
+        {{ post.body }}
+    <h3 class="mt-5">{{tag.title}}</h3>
+    {% endfor %}
+{% endblock %}
+
+# views.py создаем вьюху для отображения тегов
+def tags_list(request):
+    tags = Tag.objects.all()
+    return render(request, 'blog/tags_list.html', context={'tags': tags})
+
+# urls.py
+path('tags/', tags_list, name='tags_list_url')
+
+# теперь делаем отображение конкретнго тега - по аналогии с постами
+
+# и тут Олег решает что копипастить верстку из одного шаблона в другой это зашквар
+#(копипастили cards из index.html в tag_detail.html)
+делаем шаблон для карточки с тем чтобы потом подключать его через include
+создаем внутри папки с шаблонами: templates/blog/ папку includes, в ней post_cart_template.html
+внутри шаблона подключаем его как:
+{% include 'blog/includes/post_card_template.html' %}
+
+# создали список тегов по аналогии со списком постов
+# подправляем футер для карточек
+# в футере прописываем для каждого поста список асоциированных с ним тегов
