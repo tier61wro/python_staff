@@ -5,6 +5,7 @@ git checkout master
 git pull origin master
 git merge test
 git push origin master
+
 ----
 урок 1
 virtualenv venv
@@ -50,9 +51,9 @@ mvc - паттерн проектирования:
 
 Model - бд
 View - демонстрация ответа пользователю - шаблоны на деле
-Controller - маршрутизация запросов - views на деле
+Controller - маршрутизация запросов - views.py и urls.py на деле
 
-юзаем sqlite
+в нашем проекта используем sqlite
 
 #vievs.py - обработчик запроса браузера всегда на вход принимает
 объект request
@@ -60,7 +61,7 @@ def hello(request):
     pass
 
 Встроенная функция dir() возвращает отсортированный список строк, содержащих имена, определенные в модуле.
-Список содержит имена всех модули, переменных и функций, определенные в модуле.
+Список содержит имена всех модулей, переменных и функций, определенные в модуле.
 чтобы приложение заработало добавляем его в settings.py
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -85,7 +86,7 @@ urlpatterns = [
 app/blogengine/blog/templates/blog
 шаблоны размещаются по папкам чтобы избежать конфликтов
 
-передача переменной в шаблон:
+передача переменной в шаблон осуществляется при помощи контекста и функции render:
 #views.py
 def posts_list(request):
     n = 'sasha'
@@ -166,7 +167,7 @@ Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
 # выведем на экран все экземпляры используя метод all()
 >>> Post.objects.all()
 <QuerySet [<Post: New post>, <Post: new_post>]>
-# наедем нужный пост при помощи метода get()
+# найдем нужный пост при помощи метода get()
 >>> post = Post.objects.get(title='New post')
 >>> post
 <Post: New post>
@@ -183,12 +184,13 @@ Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
 <QuerySet [<Post: New post>, <Post: new_post>]>
 # iexact, contains это Джанго lookups, ,список тут:
 https://docs.djangoproject.com/en/2.2/ref/models/querysets/#field-lookups
-# Field lookups are how you specify the meat of an SQL WHERE clause. They’re specified as keyword arguments to the QuerySet methods filter(), exclude() and get().
+# Field lookups are how you specify the meat of an SQL WHERE clause.
+#They’re specified as keyword arguments to the QuerySet methods filter(), exclude() and get().
 
 #------------------ добавляем немного верстки
 идем во
 https://getbootstrap.com/docs/4.3/components/card/#header-and-footer
-и берем оттуда card и запишиваем его в цикл отображения постов
+и берем оттуда card и записываем его в цикл отображения постов
 
 {% for post in posts %}
 <div class="card">
@@ -207,7 +209,7 @@ https://getbootstrap.com/docs/4.3/components/card/#header-and-footer
 {% endblock %}
 # фильтры для шаблонов всегда идут после |
 # список фильтров https://docs.djangoproject.com/en/2.2/ref/templates/builtins/#ref-templates-builtins-filters
-# описание языка шаьлонов джанго https://docs.djangoproject.com/en/2.2/ref/templates/language/
+# описание языка шаблонов джанго https://docs.djangoproject.com/en/2.2/ref/templates/language/
 
 чтобы сделать незахардкоженные ссылки меняем в шаблоне:
 <!--<a class="nav-link" href="/blog">Blog </a>-->
@@ -225,8 +227,10 @@ path('', posts_list, name='posts_list_url')
 ./blog/templates/blog/post_detail.html
 
 # index.html для каждого поста
+#
 <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-light">Read</a>
 # urls.py
+# post_detail_url - прийдет по названию из urls.py
 path('post/<slug:slug>/', post_detail, name='post_detail_url') # в угловых  скобках именованная группа, слэш в конце обязателен
 # views.py
 def post_detail(request, slug): # slug прийдет из именованной группы символов 'post/<slug:slug>/'
@@ -241,7 +245,7 @@ def post_detail(request, slug): # slug прийдет из именованно�
     def get_absolute_url(self): #имя лучше именно такое, возврашает ссылку на конкретный экземпляр класса Post
         return reverse('post_detail_url', kwargs={'slug':self.slug}) # reverse в .py = url в шаблонах
 
-#---------------------
+#--------------------- кусок старой доки, забрать про блоки в шаблонах и удалить
 затем идем во вьюхи и там прикручиваем
 берем пременные из модели и говорим отрендери нам шаблон вот с такими переменными взятыми из базы через модель
 пути динамические
@@ -287,8 +291,8 @@ def get_absolute_url(self):
 
 # еще немного премудростей консоли джанго
 # делаем правки вручную
-#ctr + l - очистка консоли
-#берем значения всех полей одного экземпляра по id
+# ctr + l - очистка консоли
+# берем значения всех полей одного экземпляра по id
 
 #--------models.py Создаем новую модель
 class Tag(models.Model):
@@ -296,14 +300,15 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=50)
 
     def __str__(self):
-        return '{}'.format(self.title)
+        return '{}'.format(self.title) # ???
 
 #создаем в моделе post дополнительное поле которое будет связвывать ее с tag
     tags = models.ManyToManyField('Tag', blank=True, related_name='posts')  # экземпляр класса ManyToManyField
-    #related_name  - обозначает свойство которое появится у экзэмпляров класса Tag
+    # related_name  - обозначает свойство которое появится у экзэмпляров класса Tag
     # posts - главный класс, tag - обслуживаюший
-#--------
+    # blank=True означает что экземпляр класса может создаться и без этого поля
 
+#-------- еще немного магии консоли
 >>> Post.objects.values().filter(id=1)
 <QuerySet [{'id': 1, 'title': 'New post', 'slug': 'new-slug', 'body': 'new post body', 'date_pub': datetime.date(2019, 6, 29)}]>
 #берем значения всех полей всех экземпляров класса
@@ -353,3 +358,79 @@ path('tags/', tags_list, name='tags_list_url')
 # создали список тегов по аналогии со списком постов
 # подправляем футер для карточек
 # в футере прописываем для каждого поста список асоциированных с ним тегов
+
+
+6 урок Class based views и миксины
+после всех манипуляций у нас две проблемы:
+1) наши вьюхи обрабатывают только get запросы
+2) вьюхи дублируют друг друга
+
+меняем функцию на класс
+#в urls.py
+#path('post/<str:slug>/', post_detail, name='post_detail_url'), # в угловых  скобках именованная группа, слэш в конце обязателен
+path('post/<str:slug>/', PostDetail.as_view(), name='post_detail_url'),
+
+#во views.py
+class PostDetail(View):
+    def get(self, request, slug): # переопределяем метод отвечающий за обработку get запросов
+        # распределение запросов по http методам теперь занимается класс view
+        post = Post.objects.get(slug__iexact=slug)
+        return render(request, 'blog/post_detail.html', context={'post': post})
+
+# делаем 404 для несуществующих постов вместо ошибок джанги
+
+# первая проблема решена
+# объединяем два класса в один
+class PostDetail(View):
+    def get(self, request, slug): #
+        post = get_object_or_404(Post, slug__iexact=slug)
+        return render(request, 'blog/post_detail.html', context={'post': post})
+
+class TagDetail(View):
+    def get(self, request, slug):
+        tag = Tag.objects.get(slug__iexact=slug)
+        return render(request, 'blog/tag_detail.html', context={'tag': tag})
+
+#создаем утилиты:
+#создаем миксин - класс с общим для двух классов поведением
+# который реализует нужную нам абстрактную логику
+>>> model = Post
+>>> model
+<class 'blog.models.Post'>
+>>> model.__name__
+'Post'
+>>> model.__name__.lower()
+'post'
+в качестве ключа для контекста будем использовать .__name__.lower()
+#-------- Mixin
+class ObjectDetailMixin:
+    model = None
+    template = None
+
+    def get(self, request, slug):
+        obj = get_object_or_404(self.model, slug__iexact=slug)
+        return render(request, self.template, context={self.model.__name__.lower(): obj})
+class PostDetail(ObjectDetailMixin, View):# порядок важен!!!
+    model = Post
+    template = 'blog/post_detail.html'
+ #--------------
+# посмотреть порядок поиска соответствующих атрибутов:
+>>> Post.mro()
+[<class 'blog.models.Post'>, <class 'django.db.models.base.Model'>, <class 'object'>]
+# mro - model resolution order
+
+>>> class Mixin:
+...     name = 'oleg'
+...
+>>> class Man:
+...     name = None
+...
+>>> class Human(Mixin, Man):
+...     pass
+...
+>>> a = Human
+>>> a.name
+'oleg'
+
+>>> Human.mro()
+[<class 'Human'>, <class 'Mixin'>, <class 'Man'>, <class 'object'>]
