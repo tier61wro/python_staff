@@ -390,7 +390,7 @@ class TagDetail(View):
     def get(self, request, slug):
         tag = Tag.objects.get(slug__iexact=slug)
         return render(request, 'blog/tag_detail.html', context={'tag': tag})
-
+# нам необходимо все повторчющиеся части вынести в переменные
 #создаем утилиты:
 #создаем миксин - класс с общим для двух классов поведением
 # который реализует нужную нам абстрактную логику
@@ -410,6 +410,8 @@ class ObjectDetailMixin:
     def get(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)
         return render(request, self.template, context={self.model.__name__.lower(): obj})
+
+# с учетом миксина наш класс будет выглядеть так:
 class PostDetail(ObjectDetailMixin, View):# порядок важен!!!
     model = Post
     template = 'blog/post_detail.html'
@@ -434,3 +436,98 @@ class PostDetail(ObjectDetailMixin, View):# порядок важен!!!
 
 >>> Human.mro()
 [<class 'Human'>, <class 'Mixin'>, <class 'Man'>, <class 'object'>]
+
+7. урок Forms
+CRUD
+create
+read
+update
+delete
+#-----создаем форму
+from django import forms
+class TagForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    slug = forms.CharField(max_length=50)
+
+класс Form для кажого своего поля генерируют html тэг в терминологии джанго  - виджит
+в данном случае это поля input которые соответствуют Charfield
+также класс form проводит валидацию и отчистку введенных данных при помощи клин методов
+class TagForm соответствует сlass Tag из models.py
+форма - портал ведущий от пользователя в базу данных
+все что мы забивали в консоли руками через форму передается через специальный словарь Cleaned Data - покажем это в консоли
+
+>>> from blog.forms import TagForm
+>>> tf = TagForm()
+>>> tf
+<TagForm bound=False, valid=Unknown, fields=(title;slug)>
+>>>
+# bound - данные которые полльзователь ввел в форму
+смотрим свойства и методы
+is_bound -свойство
+is_valid() - метод
+cleaned_data пустой если is_valid() вернул false
+# пример в консоли на пустом словаре:
+>>> d = {'title':'','slug':''}
+>>> tf = TagForm(d)
+>>> tf.is_valid()
+False
+>>> tf.cleaned_data()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'dict' object is not callable
+>>> tf.cleaned_data
+{}
+>>>
+#---- пример на пиздатом словаре
+>>> d = {'title':'Some title','slug':'Some slug'}
+>>> tf = TagForm(d)
+>>> tf.errors
+{}
+>>> tf.cleaned_data
+{'title': 'Some title', 'slug': 'Some slug'}
+#----
+django -> is_valid() -> clean методы всей формы и отдельных полей
+данные помещаются в словарь cleaned_data, иначе validation_error
+
+
+
+
+======
+>>> from blog.models import Tag
+>>> tag = Tag(title=tf.cleaned_data['title'], slug=tf.cleaned_data['slug'])
+>>> tag
+<Tag: Some title>
+>>> tag.id
+>>> tag.save()
+
+====
+from blog.forms import TagForm
+d = {'title':'Some title','slug':'Some slug'}
+tf = TagForm(d
+tf.cleaned_data
+tf.is_valid()
+
+==========
+
+>>> from blog.forms import TagForm
+>>> d = {'title':'Some title','slug':'Some slug'}
+>>> tf = TagForm(d)
+>>> tf
+<TagForm bound=True, valid=Unknown, fields=(title;slug)>
+>>> tf.cleaned_data
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'TagForm' object has no attribute 'cleaned_data'
+>>> tf.is_valid()
+True
+>>> tf.cleaned_data
+{'title': 'Some title', 'slug': 'Some slug'}
+>>> from blog.models import Tag
+>>> tag = Tag(title=tf.cleaned_data['title'], slug=tf.cleaned_data['slug'])
+>>> tag
+<Tag: Some title>
+>>> tag.save
+<bound method Model.save of <Tag: Some title>>
+>>> tag.save()
+>>> tag.id
+1

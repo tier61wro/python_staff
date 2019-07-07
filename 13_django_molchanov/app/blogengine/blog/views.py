@@ -3,9 +3,12 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.shortcuts import get_object_or_404
 from .utils import ObjectDetailMixin
+from django.shortcuts import redirect
 
 from .models import Post
 from .models import Tag
+
+from .forms import TagForm
 
 # Create your views here.
 
@@ -39,3 +42,22 @@ class PostDetail(ObjectDetailMixin, View):# порядок важен!!!
 class TagDetail(ObjectDetailMixin, View):
     model = Tag
     template = 'blog/tag_detail.html'
+
+class TagCreate(View): # реагирует на гет запрос и на пост запрос - поэтому две функции
+    # 1.  задача - get  отображает пользователю нашу форму
+    # 2.  post - пользователь ввел данные мы их принимаем и делаем пост запрос
+    def get(self, request):
+        form = TagForm()
+        print (f"FORM = {form}\n")
+        return render(request, 'blog/tag_create.html', context={'form': form})
+
+    def post(self, request): # 1)создаем экземпляр класса tagform 2)валидируем 3)передаем данные
+        #print(dir(request))
+        #print(request.POST)
+        bound_form = TagForm(request.POST)
+        if bound_form.is_valid():
+            new_tag = bound_form.save()
+            return redirect(new_tag)
+        return render(request, 'blog/tag_create.html', context= {'form': bound_form}) # если ошибка
+
+
