@@ -6,7 +6,7 @@ git pull origin master
 git merge test
 git push origin master
 
-----
+#----
 урок 1
 virtualenv venv
 source venv/bin/activate
@@ -390,10 +390,11 @@ class TagDetail(View):
     def get(self, request, slug):
         tag = Tag.objects.get(slug__iexact=slug)
         return render(request, 'blog/tag_detail.html', context={'tag': tag})
-# нам необходимо все повторчющиеся части вынести в переменные
+# нам необходимо все повторяющиеся части вынести в переменные
 #создаем утилиты:
 #создаем миксин - класс с общим для двух классов поведением
 # который реализует нужную нам абстрактную логику
+
 >>> model = Post
 >>> model
 <class 'blog.models.Post'>
@@ -488,9 +489,6 @@ TypeError: 'dict' object is not callable
 #----
 django -> is_valid() -> clean методы всей формы и отдельных полей
 данные помещаются в словарь cleaned_data, иначе validation_error
-
-
-
 
 ======
 >>> from blog.models import Tag
