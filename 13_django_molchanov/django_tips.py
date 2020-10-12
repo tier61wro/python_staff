@@ -6,7 +6,7 @@ git pull origin master
 git merge test
 git push origin master
 
-#----
+----
 урок 1
 virtualenv venv
 source venv/bin/activate
@@ -51,12 +51,12 @@ mvc - паттерн проектирования:
 
 Model - бд
 View - демонстрация ответа пользователю - шаблоны на деле
-Controller - маршрутизация запросов - views.py и urls.py на деле
+Controller - маршрутизация запросов - views.py и urls.py на деле. В терминологии дронова контроллеры.
 
 в нашем проекта используем sqlite
 
 #vievs.py - обработчик запроса браузера всегда на вход принимает
-объект request
+объект request (экземпляр класса HttpRequest)
 def hello(request):
     pass
 
@@ -79,6 +79,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include("blog.urls"))
 ]
+путь всегда должен заканчиваться слешом
+пути срамниваются последовательно
 ----
 3 урок наслеледование шаблона
 создаем папку с шаблонами:
@@ -113,13 +115,20 @@ https://getbootstrap.com/docs/4.3/getting-started/introduction/
 ORM - объектно ориентированный мапинг
 m-maping - соотношение карты и местности
 у нас вместо карты у нас объекты питона - вместо местности база данных
+По Дронову: модель жто представление таблицы из бд и ее полей средствами Python
 идем в models.py и создаем класс который описывает наш пост:
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=150, db_index=True)#db_index - для быстрой индексации
+    title = models.CharField(max_length=150, db_index=True)#db_index - для быстрой индексации и сортировки
     slug = models.SlugField(max_length=150, unique=True)
     body = models.TextField(blank=True, db_index=True)#CharField - валидатор
-    date_pub = models.DateField(auto_now_add=True)
+    date_pub = models.DateField(auto_now_add=True)# auto_now_add=True - при создании новой записи запишется текущая дата и время
+    
+    по умолчанию любое поле обязательно к заполнению (null = True, blank = True) означает что можно не заполянть
+    CharField - обычное сроковое поле фиксированной длинны.
+    TextField - тексовое поле неограниченной длины(memo поле)
+    ключевое поле джанго создает самостоятельно
+    
 
     def __str__(self): # метод класса (модели) отвечает за вывод инф о объекте, мы переопределяем его
         return '{}'.format(self.title) # если принтить объект без этого то будет некрасиво
@@ -127,6 +136,8 @@ slug - чпу человекопонятный урл (поле slug уника�
 #----------- создаем изменнения в базе
 чтобы все применилось в бд нам нужно сделать мигрэйт
 мигрэйт по сути гит для баз данных
+дронов: Миграция это мудуль Python созданный джанго на основе опрелеленной модели и
+ предназначенный для формирования в бд всех требуемых этой моделью структур(таблиц, полей, индексов)
 ~/git/learn_python/13_django_molchanov/app/blogengine$ ./manage.py makemigrations - создает именения
 после этого пояавилась папка
   blog/migrations/0001_initial.py
@@ -140,7 +151,8 @@ Running migrations:
   Applying blog.0001_initial... OK
 #----------- создание поста руками
 # переходим в консоль Джанго и создаем пост руками
-~/git/learn_python/13_django_molchanov/app/blogengine$  ./manage.py shell
+~/git/learn_python/13_django_molchanov/app/blogengine$
+./manage.py shell # переход в консоль
 Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
 >>> from blog.models import Post
 >>> p= Post(title='New post', slug='new-slug', body='new post body')
@@ -157,9 +169,22 @@ Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
 >>>
 #создали экземпляр вручную -  сохраняем изменения при помощи p.save
 #-----------
+#дронов:
+class Post(models.Model): - класс пост у нас унаследован от класса моделей
+Все классы моделей поддерживают атрибут класса objects. Он хранит диспетчер записей - структуру
+которая позволяет манипулировать все	 совокупностью записей которые есть в моделе.
+
 Джанго при создании объекта прибавляет к нему менеджера оъекта
 Он находится в атрибуте objects
-все операции чтения и изменения в БД осуществляются через менеджер модели:
+все операции чтения и изменения в БД осуществляются через менеджер модели: 
+# основные методы:
+# all() возвращает набор записей (все что есть в бд)
+# order_by() - сортирует записи по значению поля order_by('title')
+если хотим сортировку по убыванию - то делаем вот так:
+Bb.objects.order_by('-pubished'):
+# filter() - фильтрация полей по критериям filter(title='Дом')
+# get() - как filter - только возвращает одну запись 
+
 #создаем в консоли экземпляр класса пост через менеджер модели
 >>> p1 = Post.objects.create(title='new_post', slug='new_slug', body='body')
 >>> p1
@@ -186,7 +211,15 @@ Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 24 2018, 02:44:43)
 https://docs.djangoproject.com/en/2.2/ref/models/querysets/#field-lookups
 # Field lookups are how you specify the meat of an SQL WHERE clause.
 #They’re specified as keyword arguments to the QuerySet methods filter(), exclude() and get().
-
+если хотим получить строку из бд - дергаем атрибут __dict__
+идем в консоль джанги импортим класс который описывает нашу модель, 
+from blog.models import Post
+>>> p1 = Post.objects.get(title='new_post1')
+>>> print(p1)
+new_post1
+>>> print(p1.__dict__)
+{'_state': <django.db.models.base.ModelState object at 0x10412ba58>, 'id': 1, 'title': 'new_post1', 'slug': 'new-post1', 'body': 'new post body', 'date_pub': datetime.date(2019, 6, 29)}
+>>> dir(p1)
 #------------------ добавляем немного верстки
 идем во
 https://getbootstrap.com/docs/4.3/components/card/#header-and-footer
@@ -390,11 +423,10 @@ class TagDetail(View):
     def get(self, request, slug):
         tag = Tag.objects.get(slug__iexact=slug)
         return render(request, 'blog/tag_detail.html', context={'tag': tag})
-# нам необходимо все повторяющиеся части вынести в переменные
+
 #создаем утилиты:
 #создаем миксин - класс с общим для двух классов поведением
 # который реализует нужную нам абстрактную логику
-
 >>> model = Post
 >>> model
 <class 'blog.models.Post'>
@@ -411,8 +443,6 @@ class ObjectDetailMixin:
     def get(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)
         return render(request, self.template, context={self.model.__name__.lower(): obj})
-
-# с учетом миксина наш класс будет выглядеть так:
 class PostDetail(ObjectDetailMixin, View):# порядок важен!!!
     model = Post
     template = 'blog/post_detail.html'
@@ -480,52 +510,29 @@ TypeError: 'dict' object is not callable
 {}
 >>>
 #---- пример на пиздатом словаре
->>> d = {'title':'Some title','slug':'Some slug'}
->>> tf = TagForm(d)
->>> tf.errors
-{}
->>> tf.cleaned_data
-{'title': 'Some title', 'slug': 'Some slug'}
-#----
-django -> is_valid() -> clean методы всей формы и отдельных полей
-данные помещаются в словарь cleaned_data, иначе validation_error
 
-======
->>> from blog.models import Tag
->>> tag = Tag(title=tf.cleaned_data['title'], slug=tf.cleaned_data['slug'])
->>> tag
-<Tag: Some title>
->>> tag.id
->>> tag.save()
 
-====
-from blog.forms import TagForm
-d = {'title':'Some title','slug':'Some slug'}
-tf = TagForm(d
-tf.cleaned_data
-tf.is_valid()
+#-------- админская страница
+# создание админского пользователя
+18:23:15-a.kondrikov@mymac:~/git/learn_python/13_django_molchanov/app/blogengine$ python3.7 manage.py createsuperuser
+Username (leave blank to use 'a.kondrikov'):
+Email address: tier61rus@mail.ru
+Password:
+с фольксвагеном
+Superuser created successfully.
 
-==========
+чтобы можно было создавать экземпляры класса post через админку, в admins.py регистрируем нашу модель:
 
->>> from blog.forms import TagForm
->>> d = {'title':'Some title','slug':'Some slug'}
->>> tf = TagForm(d)
->>> tf
-<TagForm bound=True, valid=Unknown, fields=(title;slug)>
->>> tf.cleaned_data
-Traceback (most recent call last):
-  File "<console>", line 1, in <module>
-AttributeError: 'TagForm' object has no attribute 'cleaned_data'
->>> tf.is_valid()
-True
->>> tf.cleaned_data
-{'title': 'Some title', 'slug': 'Some slug'}
->>> from blog.models import Tag
->>> tag = Tag(title=tf.cleaned_data['title'], slug=tf.cleaned_data['slug'])
->>> tag
-<Tag: Some title>
->>> tag.save
-<bound method Model.save of <Tag: Some title>>
->>> tag.save()
->>> tag.id
-1
+from .models import Post
+admin.site.register(Post)
+
+тут же делаем так чтобы в списке постов у нас все отображалось красиво
+# admins.py
+# Register your models here.
+from .models import Post
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'date_pub')
+
+admin.site.register(Post, PostAdmin)
+
