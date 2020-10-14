@@ -9,7 +9,7 @@ Note: for this kata y isn't considered a vowel.
 самый простой способ получить список из строки в питоне:
 list('aeiou')
 '''
-
+import re
 
 def disemvowel(string):
 	vowels = list('aeiou')
@@ -20,6 +20,9 @@ def disemvowel(string):
 			res = res + l
 	return res
 
+# красивый способ через регулярки
+def disemvowel_re(string):
+	return re.sub(r"[aeiouAEIOU]", "", string)
 
 result = disemvowel("This website is for losers LOL!")
 print(result)
