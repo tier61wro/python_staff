@@ -1,6 +1,7 @@
 '''
 https://www.codewars.com/kata/55b75fcf67e558d3750000a3/train/python
-
+points: 7 kyu
+type: OOP
 ----
 Write a class Block that creates a block (Duh..)
 ##Requirements
