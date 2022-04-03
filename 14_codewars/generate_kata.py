@@ -4,7 +4,10 @@ import re
 from datetime import date
 from textwrap import dedent
 
+'''
 # generate kata file from given sample
+python3.8 generate_kata.py --file_out split_the_bill
+'''
 
 t = date.today().strftime('%d.%m.%Y')
 
