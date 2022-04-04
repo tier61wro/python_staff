@@ -1,7 +1,7 @@
 '''
 kata link: https://www.codewars.com/kata/55805ab490c73741b7000064
 points: 7 kyu
-type: OOP
+type: Strings, Basic
 ----
 back·ro·nym
     An acronym deliberately formed from a phrase whose initial letters spell out a particular word or words,
