@@ -18,7 +18,13 @@ Good luck and happy coding!
 
 -------------
 TRANSLATION:
-Вам нужно дореализовать соответствующие методы класса Dictionary
+Вам нужно дореализовать соответствующие методы класса Dictionary (словарь)
+чтобы работало создание объекта класса:
+>>> d = Dictionary()
+метод newentry:
+>>> d.newentry('Apple', 'A fruit that grows on trees')
+метод поиска значения по словарю look:
+>>> print(d.look('Apple'))
 
 class Dictionary():
     def __init__(self):
@@ -29,6 +35,7 @@ class Dictionary():
 
     def look(self, key):
         # your code
+так чтобы
 -------------
 ===TRAINED====
 красивый return черерез тернарный оператор
