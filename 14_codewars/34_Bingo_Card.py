@@ -3,7 +3,7 @@
 train_date: 16.04.2022
 kata link: https://www.codewars.com/kata/566d5e2e57d8fae53c00000c
 points: 6 kyu
-type: OOP
+type: basic
 -------------
 DESCRIPTION:
 After yet another dispute on their game the Bingo Association decides to change course and automate the game.
@@ -48,8 +48,10 @@ A Bingo card contains 24 unique and random numbers according to this scheme:
 'O73', 'O63', 'O71', 'O70', 'O68']
 -------------
 ===TRAINED====
-удаление элемента из массива
-
+удаление элемента из массива по индексу
+del card[12]
+итерирование по массиву вместе с индексом
+for id, l in enumerate(letters):
 
 ==== КРАСОТА ====
 import random
