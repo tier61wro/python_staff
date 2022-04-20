@@ -33,7 +33,6 @@ The numbers must be in the order of their column: B, I, N, G, O. Within the colu
 TRANSLATION:
 Вам нужно сгенерировать массив который будет определять собой карточку для лотереи по следующим правилам:
 
-A Bingo card contains 24 unique and random numbers according to this scheme:
 Лотерейная карточка содержит 24 уникальных и различных числа по следующей схеме:
     5 цифр колонки B в интервале от 1 до 15
     5 цифр колонки I в интервале от 16 до 30
