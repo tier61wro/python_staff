@@ -68,25 +68,40 @@ import codewars_test as test
 
 from random import choice
 
+# простое решение
+# def get_bingo_card():
+#     card = []
+#     letters = [l for l in 'bingo'.upper()]
+#     b_n = [1, 16, 31, 46, 61, 76]
+#     for id, l in enumerate(letters):
+#         for n in range(1, 6):
+#             while True:
+#                 el = f'{l}{choice(range(b_n[id], b_n[id + 1]))}'
+#                 if el not in card:
+#                     card.append(el)
+#                     break
+#
+#     del card[12]
+#     return card
 
+def generate_el(card, l , a, b):
+    return s if ((s := f'{l}{choice(range(a, b))}') not in card) else generate_el(card, l, a, b)
+
+
+# сложное решение через рекурсию
 def get_bingo_card():
     card = []
     letters = [l for l in 'bingo'.upper()]
     b_n = [1, 16, 31, 46, 61, 76]
     for id, l in enumerate(letters):
-        for n in range(1, 6):
-            while True:
-                el = f'{l}{choice(range(b_n[id], b_n[id + 1]))}'
-                if el not in card:
-                    card.append(el)
-                    break
+        for n in range(5):
+            card.append(generate_el(card, l, b_n[id], b_n[id + 1]))
 
     del card[12]
     return card
 
-
 card = get_bingo_card()
-print(card)
+print(f'{card=}')
 
 
 def get_column(card, p):
