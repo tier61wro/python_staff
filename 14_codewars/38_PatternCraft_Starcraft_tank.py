@@ -46,11 +46,10 @@ TRANSLATION:
 -------------
 ===TRAINED====
 базовое ООП
-TODO
+TODO:
 дальше можно запилить задачку как пример на
 -  абстрактные классыABC (from abc import ABC)
 - датаклассы
-
 -------------
 '''
 from self import self
