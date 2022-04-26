@@ -103,6 +103,10 @@ def reverse(seq):
     for i, el in enumerate(r):
         seq[len(seq) -1 - i] = el
 
+def reverse(seq):
+    r = seq.copy()
+    for i, el in enumerate(r):
+        seq[len(seq) -1 - i] = el
 
 # seq = [1, 2, 3, 4, 5]
 # reverse(seq)

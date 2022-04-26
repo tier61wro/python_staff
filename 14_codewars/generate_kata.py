@@ -27,6 +27,8 @@ kata_text = dedent(f'''
             \'\'\'\n\
             \n\
             import codewars_test as test\n\
+            \n
+            #===TESTS====\n\
             ''')
 
 print(kata_text)
