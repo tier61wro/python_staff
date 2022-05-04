@@ -14,7 +14,7 @@ t = date.today().strftime('%d.%m.%Y')
 kata_text = dedent(f'''
             \'\'\'
             train_date: {t}\n\
-            kata link: https://www.codewars.com/kata/5641275f07335295f10000d0/\n\
+            kata link: https://www.codewars.com/kata/some_hash/\n\
             points: 7 kyu\n\
             type: OOP\n\
             -------------\n\
@@ -36,7 +36,7 @@ print(kata_text)
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file_out', dest='file_out', required=True)
+    parser.add_argument('-f', '--file_out', dest='file_out', required=True)
 
     args = parser.parse_args()
     file_out = args.file_out
