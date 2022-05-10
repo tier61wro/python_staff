@@ -1,5 +1,5 @@
 '''
-train_date: 04.05.2022
+train_date: 07.05.2022
 kata link: https://www.codewars.com/kata/5535572c1de94ba2db0000f6
 points: 7 kyu
 type: OOP
@@ -39,13 +39,31 @@ class Dog(object):
 
 -------------
 TRANSLATION:
+у вас есть класс Dog(object)
+с набором атрибутов
+при помощи этого класса уже создано куча объектов - проблема в том что вы забыли сделать метод bark
+вам нужно добавить метод к классу так чтобы уже существующие собаки могли гавкать
 -------------
 ===TRAINED====
+lambda вход_параметры: что_делаем
+из красивое
+Dog.bark = staticmethod(lambda: 'Woof!')
 -------------
 '''
 
 import codewars_test as test
 
+class Dog(object):
+    def __init__(self, name, breed, sex, age):
+        self.name  = name
+        self.breed = breed
+        self.sex   = sex
+        self.age   = age
+
+
+
+Dog.bark = lambda self: "Woof!"
+print (Dog.bark)
 
 #===TESTS====
 print('Can you make newly created dogs bark?')

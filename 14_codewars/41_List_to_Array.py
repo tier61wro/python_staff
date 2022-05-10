@@ -1,5 +1,5 @@
 '''
-train_date: 04.05.2022
+train_date: 05.05.2022
 kata link: https://www.codewars.com/kata/557dd2a061f099504a000088
 points: 7 kyu
 type: OOP
@@ -28,16 +28,40 @@ all values will be either numbers, strings, or Booleans.
 
 -------------
 TRANSLATION:
+Связанные структуры это структуры составленные из нескольких вложенных или связанных цепью объектов,
+каждый содержит единичное значение и ссылку на следующий объект
+напишите функцию которая будет принимать на вход связанные объект и возвращать назад массив
 -------------
 ===TRAINED====
+сам написал рекурсивную функцию :)
+
+решение по красоте:
+def list_to_array(lst):
+    return ([lst.value] + list_to_array(lst.next)) if lst else []
+
 -------------
 '''
 
 import codewars_test as test
 
+
+class LinkedList:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+
 def list_to_array(node):
-    # ???
-    return []
+    arr_back = []
+
+    def req_fun(n):
+        arr_back.append(n.value)
+        if n.next:
+            req_fun(n.next)
+
+    req_fun(node)
+    return arr_back
+
 
 #===TESTS====
 

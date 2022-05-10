@@ -1,5 +1,5 @@
 '''
-train_date: 04.05.2022
+train_date: 06.05.2022
 kata link: https://www.codewars.com/kata/55be95786abade3c71000079
 points: 7 kyu
 type: OOP
