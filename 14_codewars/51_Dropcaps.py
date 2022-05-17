@@ -2,7 +2,7 @@
 train_date: 15.05.2022
 kata link: https://www.codewars.com/kata/559e5b717dd758a3eb00005a
 points: 7 kyu
-type: OOP
+type: REGEXP
 -------------
 DESCRIPTION:
 DropCaps means that the first letter of the starting word of the paragraph should be in caps and the remaining lowercase,
