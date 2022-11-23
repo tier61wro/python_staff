@@ -1,6 +1,6 @@
 '''
-train_date: 01.06.2022
-kata link: https://www.codewars.com/kata/55ddb0ea5a133623b6000043
+train_date: 15.06.2022
+kata link:
 points: 7 kyu
 type: OOP
 -------------
@@ -30,18 +30,21 @@ TRANSLATION:
 
 import codewars_test as test
 
+
 def class_name_changer(cls, new_name):
-    pass;
+    if new_name
+    cls.__name__ = new_name
 
 #===TESTS====
 class MyClass:
     pass
 
 myObject = MyClass();
-test.assert_equals(MyClass.__name__, "MyClass")
+#
 
+test.assert_equals(MyClass.__name__, "MyClass")
 class_name_changer(MyClass, "UsefulClass");
 test.assert_equals(MyClass.__name__, "UsefulClass")
-
+#
 class_name_changer(MyClass, "SecondUsefulClass");
 test.assert_equals(MyClass.__name__, "SecondUsefulClass")
