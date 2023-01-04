@@ -4,7 +4,7 @@ from random import choice
 # from string import ascii_lowercase
 import string
 
-name = 'Ivan'
+# name = 'Ivan'
 
 
 class Person:
@@ -18,8 +18,8 @@ class Person:
         return cls(name=son_name)
 
 
-p1 = Person('Anna')
-p2 = Person.chaika_son_name('Artem')
+p1 = Person('Anna')  # Anna
+p2 = Person.chaika_son_name('Artem')  # Relax
 
 print(p1.name)
 print(p2.name)
