@@ -10,19 +10,22 @@ clock = pygame.time.Clock()
 # background music
 pygame.mixer.init()
 pygame.mixer.music.load("music/sonar.mp3.mpg")
-#pygame.mixer.music.load("music/sonar2.mp3.mpg")
-#pygame.mixer.music.load("music/expl.mp3.mpg")
+# pygame.mixer.music.load("music/sonar2.mp3.mpg")
+# pygame.mixer.music.load("music/expl.mp3.mpg")
 
 pygame.mixer.music.play(1000, 0)
 
+# логгирование
 logging.basicConfig(filename='logfile.log', level=logging.INFO)
 logging.info('==============================')
 logging.info('GAME STARTED')
 
+# подгружаем изображения
 images_folder = './images'
 cargoStand = pygame.image.load(os.path.join(images_folder, 'cargo.png'))
 lodkaStand = pygame.image.load(os.path.join(images_folder, 'submarine.png'))
 planeStand = pygame.image.load(os.path.join(images_folder, 'plane.png'))
+
 
 pygame.init()
 run = True
@@ -106,6 +109,7 @@ class Plane():
             self.last_bomb = curr_time
             file = 'music/1_torpeda.mp3'
             pygame.mixer.music.load(file)
+            pygame.mixer.music.set_volume(0.1)
             pygame.mixer.music.play()
             logging.info('we created bomb sound')
             bombs.append(Bomb(self.x + self.width/2, self.y + self.height, 'ordinary'))
@@ -147,7 +151,7 @@ while run:
             run = False
 
 
-    disclaimertext = myfont.render("Round 1", 1, (0,0,0))
+    disclaimertext = myfont.render("Round 1", 1, (0, 0, 0))
     gameovertext = myfont.render("GAME OVER", 1, (0, 0, 0))
     scoretext = myfont.render("Score {0}".format(score), 1, (0,0,0))
     reloadtext = myfont.render("Reloading in {0}".format('3'), 1, (0, 0, 0))
