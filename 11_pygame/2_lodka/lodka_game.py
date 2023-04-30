@@ -4,6 +4,9 @@ import os
 import sys
 import time
 
+from graphic import cargoStand, lodkaStand
+from ships_and_enemies_classes import Torpedo, Bomb, Plane
+
 
 clock = pygame.time.Clock()
 
@@ -17,14 +20,12 @@ pygame.mixer.music.play(1000, 0)
 
 # логгирование
 logging.basicConfig(filename='logfile.log', level=logging.INFO)
-logging.info('==============================')
 logging.info('GAME STARTED')
 
 # подгружаем изображения
 images_folder = './images'
-cargoStand = pygame.image.load(os.path.join(images_folder, 'cargo.png'))
-lodkaStand = pygame.image.load(os.path.join(images_folder, 'submarine.png'))
-planeStand = pygame.image.load(os.path.join(images_folder, 'plane.png'))
+
+
 
 
 pygame.init()
@@ -50,26 +51,11 @@ speed = 10
 alive = 1
 double_speed = speed * 2
 
-
-class Torpeda():
-    def __init__(self, x, y, type):
-        self.x = x
-        self.y = y
-        self.vel = 8
-
-    def draw(self, win):
-        pygame.draw.rect(win, (0, 0, 0), (self.x, self.y, 2, 5))
-
-
-class Bomb():
-    def __init__(self, x, y, type):
-        self.x = x
-        self.y = y
-        self.vel = 10
-
-    def draw(self, win):
-        pygame.draw.rect(win, (0, 0, 0), (self.x, self.y, 2, 5))
-
+torpedos = []
+enemies = []
+planes = []
+bombs = []
+score = 0
 
 class Enemy():
     def __init__(self, x, y, type):
@@ -89,35 +75,9 @@ class Enemy():
         win.blit(cargoStand, (self.x, self.y))
 
 
-class Plane():
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.width = 50
-        self.height = 100
-        self.vel = 8  # TODO make it random (5 - 10)
-        self.last_bomb = pygame.time.get_ticks()
-
-    def draw(self, win):
-        #pygame.draw.rect(win, (0, 0, 0), (self.x, self.y, self.size, 8))
-        win.blit(planeStand, (self.x, self.y))
-
-    def create_bomb(self):
-        curr_time = pygame.time.get_ticks()
-        if (curr_time - self.last_bomb) > 1000:
-            logging.info('we created bomb')
-            self.last_bomb = curr_time
-            file = 'music/1_torpeda.mp3'
-            pygame.mixer.music.load(file)
-            pygame.mixer.music.set_volume(0.1)
-            pygame.mixer.music.play()
-            logging.info('we created bomb sound')
-            bombs.append(Bomb(self.x + self.width/2, self.y + self.height, 'ordinary'))
-
-
-
 def drawWindow():
     #win.blit(bg, (0, 0))
+    global bombs
     for torpeda in torpedos:
         torpeda.draw(win)
 
@@ -125,7 +85,7 @@ def drawWindow():
         enemy.draw(win)
 
     for plane in planes:
-        plane.create_bomb()
+        bombs = plane.create_bomb(bombs)
         plane.draw(win)
 
     for bomb in bombs:
@@ -137,11 +97,7 @@ def drawBg():
     win.blit(bg, (0, 0))
 
 
-torpedos = []
-enemies = []
-planes = []
-bombs = []
-score = 0
+
 
 # MAIN LOOP START
 while run:
@@ -172,20 +128,19 @@ while run:
         win.blit(disclaimertext, (5, 480))
         win.blit(scoretext, (5, 10))
         win.blit(reloadtext, (win_width - 150, win_height - 20))
-        #win.blit(planeStand, (100, 10))
         win.blit(lodkaStand, (x, y))
 
-        for torpeda in torpedos:
+        for torpedo in torpedos:
             for enemy in enemies:
-                if (torpeda.y < 95) and ((torpeda.x > enemy.x) and (torpeda.x < enemy.x + enemy.size)):
+                if (torpedo.y < 95) and ((torpedo.x > enemy.x) and (torpedo.x < enemy.x + enemy.size)):
                     logging.info('enemy was killed')
                     score += 1
                     enemies.pop(enemies.index(enemy))
 
-            if torpeda.y < win_height and torpeda.y > 95:
-                torpeda.y -= 10
+            if torpedo.y < win_height and torpedo.y > 95:
+                torpedo.y -= 10
             else:
-                torpedos.pop(torpedos.index(torpeda))
+                torpedos.pop(torpedos.index(torpedo))
 
         for bomb in bombs:
             logging.debug("bombx = {}, bomby = {}".format(bomb.x, bomb.y))
@@ -238,7 +193,7 @@ while run:
             y += speed
         if keys[pygame.K_SPACE]:
             # launch torpedo
-            torpedos.append(Torpeda(round(x + width // 2), round(y + height // 2), 'ordinary'))
+            torpedos.append(Torpedo(round(x + width // 2), round(y + height // 2), 'ordinary'))
         if keys[pygame.K_o]:
             # create Enemy
             # logging.info("we added enemy to list")
