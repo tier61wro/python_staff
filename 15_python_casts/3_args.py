@@ -1,22 +1,24 @@
-from sys import exit
-# просто пример генератора,понадобится позднее
-def gen():
-    for i in range(10):
-        yield i
+def add_numbers(a, b):
+    print(a, b)
 
-# задача хотим сделать функцию которая складывает произвольное количество аргументов
+# с двумя переменными все ок - но что делать если переменных больше, мы же не будем переписывать всю функцию?
+# нам приходит на помощь вот такая функция
+
+
 def add(*args):
+    print(type(args))  # tuple
+    print(f'args = {args}')
     print(sum(args))
 
-add(2,3,4)
 
-#exit()
+add(2, 3, 4)
+
 
 # но если надо передать список в функцию со *, список надо передавать на вход тоже со *
-l = [1,2,3]
 
-#exit()
-#add(l) - так свалимся в эксепшен
+l = [1, 2, 3]
+
+#add(l) # так свалимся в эксепшен
 add(*l)
 
 
@@ -27,8 +29,6 @@ add(*l)
 # ** - упаковка входящих позиционных аргументов в словарь
 # а **kwargs — сокращение от «keyword arguments» (именованные аргументы).
 
-print('=========')
-
 
 def show_args(*args, **kwargs):
     print(f'args = {args}')
@@ -37,7 +37,28 @@ def show_args(*args, **kwargs):
 
 a = [1, 2, 3]
 d = {'street': 'tapicerska', 'house': 5}
-# работает вот такая передача словаря (по методу данилы)
+
 show_args(*a, street = 'tapicerska', house = 5)
 # и вот так тоже:
 show_args(*a, **d)
+
+
+# Самозадание
+'''
+написать функцию которая принимает на вход
+первую позиционную переменную индекс
+дальше все позиционные переменные в имя
+и все именованные переменные в адрес
+'''
+
+def create_konvert(index, *args, **kwargs):
+    name = ' '.join(args)
+    addres = ""
+    for k, v in kwargs.items():
+        addres += k + ' ' + v + ',' + ' '
+    konvert_sticker = f'index: {index}, username: {name}, addr: {addres}'
+    return konvert_sticker
+
+konvert = create_konvert('053200', 'Лунаида', 'Ивановна', 'Коновалова', street = 'Broadway', house = '10', flat = '1')
+#index: 053200, username: Лунаида Ивановна Коновалова, addr: street Tapicerska,house 5,flat 1,
+print(konvert)

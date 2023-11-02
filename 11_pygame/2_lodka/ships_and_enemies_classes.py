@@ -34,7 +34,7 @@ class Plane:
         self.last_bomb = pygame.time.get_ticks()
 
     def draw(self, win):
-        #pygame.draw.rect(win, (0, 0, 0), (self.x, self.y, self.size, 8))
+        # pygame.draw.rect(win, (0, 0, 0), (self.x, self.y, self.size, 8))
         win.blit(planeStand, (self.x, self.y))
 
     def create_bomb(self, bombs):
@@ -45,5 +45,5 @@ class Plane:
             pygame.mixer.music.load(file)
             pygame.mixer.music.set_volume(0.1)
             pygame.mixer.music.play()
-            bombs.append(Bomb(self.x + self.width/2, self.y + self.height, 'ordinary'))
+            bombs.append(Bomb(self.x + self.width / 2, self.y + self.height, 'ordinary'))
         return bombs

@@ -12,5 +12,7 @@ def main():
     print('main was called')
 
 if __name__ == '__main__':
+    print('this code only for direct launch of hello.py')
     main()
+
 

@@ -2,7 +2,7 @@ from datetime import datetime
 import argparse
 parser = argparse.ArgumentParser(description='Description of your program')
 parser.add_argument('-m', '--mode', help='Mode of work', required=True)
-args = vars(parser.parse_args()) # The vars() function returns the __dict__ attribute of the given object.
+args = vars(parser.parse_args())  # The vars() function returns the __dict__ attribute of the given object.
 print(type(args))
 
 #Декоратор
