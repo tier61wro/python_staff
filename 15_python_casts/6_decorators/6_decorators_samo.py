@@ -1,3 +1,5 @@
+# Задание на САМПО
+
 
 def uc_version(func):
     def wrapper(*args, **kwargs):

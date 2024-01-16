@@ -19,6 +19,16 @@ def gen_countdown(n):
         yield n
 
 
-g = gen_countdown(4)
-print(type(g))  # <class 'generator'>
-print(next(g))
+# g = gen_countdown(4)
+# print(type(g))  # <class 'generator'>
+# print(next(g))
+
+
+def squares(n):
+    for i in range(1, n + 1):
+        yield i * i
+
+g = squares(10)
+
+for k in g:
+    print(k)
