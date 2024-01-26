@@ -11,17 +11,19 @@ Builtins
 в примере ниже у нас list x остается доступным в памяти после того как функция one
 завершает работу
 """
+import sys
 
 
 def one():
     x = ['one', 'two']  # enclosed
 
     def inner():
-        print(x)
-        print(id(x))
-        # pass
+        # print(x)
+        # print(id(x))
+        pass
     return inner
 # в примере выше inner + x дают нам замыкание
+
 
 
 o = one()  # создаем замкнутую функцию
@@ -29,7 +31,7 @@ o()
 a = o.__closure__[0].cell_contents
 print(id(a))
 print("="*10)
-
+sys.exit()
 
 """
 применения замыканий:

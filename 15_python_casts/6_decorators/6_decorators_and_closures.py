@@ -1,7 +1,7 @@
 '''
-при декорировании функции my_func декоратором my_dec,
+Замыкания сохраняют переменные из своего окружения.
+Аналогично, при декорировании функции my_func декоратором my_dec,
 новая функция создаётся для оборачивания и расширения поведения my_func с помощью замыкания,
-аналогично тому, как замыкания сохраняют переменные из своего окружения.
 '''
 
 # замыкания
@@ -12,13 +12,11 @@ def print_author(name):
         print(f'code_author is {name}')
     return inner
 
-
 print_alex = print_author('alex')
 print_alex()
-
 closure_id = id(print_alex.__closure__[0].cell_contents)
-print(closure_id)  # 140027418796656
-# итого closure_id совпадает с id(name)
+print(closure_id)  # 140027418796656 итого closure_id совпадает с id(name)
+
 
 
 # декораторы
@@ -29,7 +27,6 @@ def add_author(func):
         print("Code author is Alex")
 
     return inner
-
 
 def print_hello():
     print("Hello dear user")
