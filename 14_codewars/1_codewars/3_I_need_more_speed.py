@@ -58,8 +58,8 @@ def reverse(seq):
 def reverse(seq):
     start = 0
     end = len(seq) - 1
-    while start <  end:
-        seq[start], seq[end]  = seq[end], seq[start]
+    while start < end:
+        seq[start], seq[end] = seq[end], seq[start]
         start += 1
         end -= 1
 
