@@ -11,10 +11,10 @@ Builtins
 '''
 
 def one():
-    x  = ['one', 'two']
+    x = ['one', 'two']
     def inner():
         print(x)
-        # print(id(x))
+        print(id(x))
         pass
     return inner
 

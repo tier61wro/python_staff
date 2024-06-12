@@ -3,6 +3,7 @@
 # 5! = 1*2*3*4*5, при этом факториал от 0 равен 1
 
 import unittest
+import sys
 
 def fact(n: int) -> int:
     if n < 0:
@@ -18,16 +19,14 @@ print(res)
 #f(1) = 1
 # f(n) = f(n-1) = f(n-2)
 # 1 + 2 + 3 + 4
-
+# способы вычисления - обычно и через yield
 
 
 def fib(n: int)-> int:
-    if n == 1:
-        return 1
-    elif n == 2:
-        return 1
-    elif n < 0:
+    if n < 0:
         raise ValueError("must be greater 0")
+    elif n == 1 or n == 2:
+        return 1
     else:
         return fib(n-1) + fib(n-2)
 
@@ -35,6 +34,8 @@ def fib(n: int)-> int:
 for i in range(1, 10):
     res = fib(i)
     print(res)
+
+sys.exit(0)
 
 
 class TestFact(unittest.TestCase):

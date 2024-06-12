@@ -36,9 +36,18 @@ def is_palindrome(str_in: str) -> bool:
 def is_anagram(first: str, second: str) -> bool:
     return sorted(first) == sorted(second)
 
-def is_anagram(first: str, second: str) -> bool:
-    return set(first) == set(second)
+# говно решение
+# def is_anagram(first: str, second: str) -> bool:
+#     return set(first) == set(second)
 
+from collections import Counter
+
+def is_anagram(first: str, second: str) -> bool:
+    return Counter(first) == Counter(second)
+
+print(is_anagram("mama", "amm"))
+
+exit()
 
 print(is_anagram('roma', 'omar'))
 print(reverse_string("brat"))
