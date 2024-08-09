@@ -9,6 +9,6 @@ def add_data(func):
 
 @add_data
 def log_func(string_in: str):
-    print(f"LOG FUNCTION: {string_in}")
+     print(f"LOG FUNCTION: {string_in}")
 
 log_func("server error 502")
