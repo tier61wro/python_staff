@@ -1,6 +1,7 @@
 import asyncio
 import string
 import time
+from datetime import datetime
 
 
 class MyException(Exception):
@@ -337,31 +338,80 @@ m = gen(l)
 # print(giveme_5())
 
 
-def caps(func):
-    def wrapper():
-        res = func()
-        return res.upper()
-    return wrapper
+# def caps(func):
+#     def wrapper():
+#         res = func()
+#         return res.upper()
+#     return wrapper
+#
+#
+# #@caps()
+# def say_hello():
+#     return "hello world"
+#
+# #print(say_hello())
+# print(caps(say_hello)())
+#
+#
+# def caps(num):
+#     def outer(func):
+#         def wrapper():
+#             res = func()
+#             return (res.upper())*num
+#         return wrapper
+#     return outer
+#
+# @caps(3)
+# def say_hello():
+#     return "hello world"
+#
+# print(say_hello())
+
+# class Person:
+#     default_surname = 'Smith'
+#
+#     def __init__(self, name, surname=default_surname):
+#         self.name = name
+#         self.surname = surname
+#
+#     def fullname(self):
+#         return f"{self.name} {self.surname}"
+#
+#
+# # p = Person('John', 'Wolf')
+# p = Person('John')
+# print(p.fullname())
 
 
-#@caps()
-def say_hello():
-    return "hello world"
+# class Person:
+#     name = 'Bill'
+#
+#     # def __new__(cls, *args, **kwargs):
+#     #     return None
+#
+#     def __init__(self):
+#         return None
+#
+# p = Person()
+#
+# # print(type(p)) # <class '__main__.Person'>
+#
+# print(type(p)) # <class 'NoneType'>
+# print(p.name)
 
-#print(say_hello())
-print(caps(say_hello)())
+class Person:
+    def __init__(self, age):
+        self.age = age
+
+    @staticmethod
+    def return_base_number():
+        return 42
+
+    def change_age(self):
+        self.age = self.return_base_number()
 
 
-def caps(num):
-    def outer(func):
-        def wrapper():
-            res = func()
-            return (res.upper())*num
-        return wrapper
-    return outer
-
-@caps(3)
-def say_hello():
-    return "hello world"
-
-print(say_hello())
+p = Person(18)
+print(p.age)
+print(p.return_base_number())
+print(Person.return_base_number())
