@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f938f91b-0cdc-4e54-a0d5-a63c71534746" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/15_python_casts/3_args.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_python_casts/3_args.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/learn_python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/learn_python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +39,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectFrameBounds">
     <option name="x" value="20" />
     <option name="y" value="23" />
@@ -90,12 +95,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/tier/github/learn_python/15_python_casts"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/tier/github/learn_python&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/14_LIVECODING/3_advanced_problems" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.19">
     <configuration name="18" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="learn_python" />
@@ -162,6 +180,8 @@
       <workItem from="1551593276746" duration="3167000" />
       <workItem from="1552736205772" duration="245000" />
       <workItem from="1672921330242" duration="11313000" />
+      <workItem from="1718637703828" duration="8224000" />
+      <workItem from="1718971186362" duration="2439000" />
     </task>
     <servers />
   </component>
@@ -195,7 +215,7 @@
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/8_100_exercise_challenge/18.py">
