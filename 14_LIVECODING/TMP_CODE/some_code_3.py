@@ -15,3 +15,22 @@ import numpy as np
 l = np.random.randn(100, 1)
 max_value = np.max(l)
 print("Максимальное значение:", max_value)
+
+
+class SensitiveField:
+    def __init__(self):
+        self.value = 100000
+
+    def __get__(self, obj, obj_type=None):
+        print("sensitive data was accessed")
+        return self.value
+
+
+class BankAccount:
+    account = SensitiveField()
+
+a = BankAccount()
+print(a.account)
+
+
+
