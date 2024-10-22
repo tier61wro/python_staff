@@ -155,3 +155,31 @@ str = 'Masha is pretty girl'
 #
 #     o = Student()
 #     o.mro()
+
+
+
+class ContManager:
+    def __enter__(self):
+        print("cont manager was called")
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("end of manager")
+
+with ContManager():
+    print("we make smth")
+#
+# scores = {'Bill': 5, 'Mary': 4, 'Steve': 5}
+#
+# def get_scores(num):
+#     def inner():
+#         return [k for k, v in scores.items() if v == 5]
+#     return inner
+#
+# give_me_5 = get_scores(5)
+# l = give_me_5()
+# print(l)
+
+class MetaPerson(type):
+    def __new__(cls, name, bases, dct):
+        pass
+

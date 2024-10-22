@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company>
+  <employee id="101">
+    <name>John Doe</name>
+    <age>30</age>
+    <department>IT</department>
+    <salary>60000</salary>
+  </employee>
+  <employee id="102">
+    <name>Jane Smith</name>
+    <age>25</age>
+    <department>HR</department>
+    <salary>50000</salary>
+  </employee>
+</company>

@@ -7,7 +7,9 @@ import sys
 
 class Person:
     pass
-
+p = Person()
+print(Person.__class__)
+print(p.__class__)
 # print(type(object))  # <class 'type'>
 # print(type(Person))  # <class 'type'>
 # p1 = Person() # <class '__main__.Person'>

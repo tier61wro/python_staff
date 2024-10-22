@@ -359,3 +359,166 @@ def fact(n):
 
 l = fact(4)
 print(l)
+from math import sqrt, ceil
+
+# нод двух чисел
+# def find_max_devider(a: int, b: int):
+#     max_d = 1
+#     min_num = min(a, b)
+#     last_n = ceil(min_num / 2) + 1
+#     print(f'last = {last_n}')
+#     for i in range(1, last_n):
+#         if (a % i == 0) and (b % i == 0):
+#             max_d = i
+#     return max_d
+
+# r = find_max_devider(20, 10)
+
+# def nod_eqklide(a: int, b: int):
+#     if a < b:
+#         (a, b) = (b, a)
+#     while b != 0:
+#         r = a % b
+#         a, b = b, r
+#     return a
+#
+# r = nod_eqklide(20, 4)
+# print(f"{r=}")
+
+# def second_largest(lst: list) -> int:
+#     m = list(set(lst))
+#     m_sorted = m.sort()
+#     return m_sorted[-2]
+#
+# l = [55, 55, 45, 3]
+#
+# second_largest(l)
+
+
+# def gcd_brute_force(a, b):
+#     # Начинаем с наибольшего возможного значения НОД
+#     gcd = 1
+#     limit = min(a, b) // 2  # Ограничиваем перебор половиной минимального числа
+#     for i in range(1, limit + 1):
+#         if a % i == 0 and b % i == 0:
+#             gcd = i
+#     return gcd
+#
+# # Пример использования
+# a = 56
+# b = 98
+# print(f"НОД({a}, {b}) = {gcd_brute_force(a, b)}")
+
+# digits = [1, 2, 3, 7, 8, 9, 3]
+# del digits[3]
+# print(digits)
+# digits.insert(5, 7)
+# print(digits)
+#
+# t = (1, 2, [1])
+#
+# # Попытка вычислить хэш
+# try:
+#     print(hash(t))
+#     print("The tuple is hashable.")
+# except TypeError:
+#     print("The tuple is not hashable.")
+#
+# scores = {'Bill': 5, 'Mary': 4, 'Steve': 5}
+# def get_some_score(score):
+#     def inner():
+#         res = [s for s in scores.keys() if scores[s] == score]
+#         return res
+#     return inner
+#
+# get_5 = get_some_score(5)
+# print(get_5())
+#
+# l = [(2,), (3,)]
+#
+# l = [k[0] for k in l]
+# print(l)
+#
+# t = (1, 10, 20)
+# print(t[0])
+#
+# super().__init__(name, surname)
+
+
+# class GeometryOperations:
+#     @staticmethod
+#     def calculate_square(side_len):
+#         return side_len ** 2
+#
+#     @staticmethod
+#     def rectangle_square(width, length):
+#         return width * length
+#
+#
+# p = GeometryOperations
+# print(p.calculate_square(2))
+#
+# print(GeometryOperations.rectangle_square(2, 10))
+
+#
+# class Person:
+#     def __init__(self, name):
+#         self.name =  name
+#
+#     @classmethod
+#     def person_with_age(cls, name, age):
+#         instance = cls(name)
+#         instance.age = age
+#         return instance
+#
+# p = Person.person_with_age('Vasja', 20)
+# print(f'{p.name} -- {p.age
+# }')
+
+# class SensitiveField:
+#     def __init__(self, val):
+#         self.value = val
+#
+#     def __get__(self, obj, obj_type=None):
+#         print("sensitive data was accessed")
+#         return self.value
+#
+# class BankAccount:
+#     account = SensitiveField(1000)
+#     client_name = 'Sasha'
+#
+# a = BankAccount()
+# print(a.account)
+# print(a.client_name)
+
+# l =[1, 2, 3, 4, 5]
+#
+# for i in range(len(l)):
+#     print(f"{i} -- {l[i]}")
+
+def fact(n):
+    if n == 0:
+        return 1
+    else:
+        return fact(n - 1) * n
+
+
+# res = fact(1)
+# print(res)
+
+# def filter_even_numbers(numbers):
+#     return [i for i in numbers if i % 2 == 0]
+
+# Пример использования:
+# input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# output: [2, 4, 6, 8, 10]
+
+# n  = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# print(filter_even_numbers(n))
+
+def f(val, a=[]):
+    a.append(val)
+    return a
+
+print(f(18))
+print(f(33))
